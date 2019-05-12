@@ -1,0 +1,22 @@
+{
+  "name": "jscms-theme-bokex",
+  "version": "1.0.0",
+  "description": "jscms-theme-bokex",
+  "main": "jscms-theme.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/js-cms/jscms-theme-bokex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/js-cms/jscms-theme-bokex/issues"
+  },
+  "homepage": "https://github.com/js-cms/jscms-theme-bokex#readme",
+  "dependencies": {
+    "fs-extra": "^8.0.0"
+  }
+}
