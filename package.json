@@ -2,7 +2,7 @@
   "name": "jscms-theme-bokex",
   "version": "1.0.0",
   "description": "jscms-theme-bokex",
-  "main": "jscms-theme.config.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
