@@ -1,0 +1,53 @@
+<aside id="secondary" class="widget-area sidebar">
+  <div class="sidebar__inner">
+    <div id="boke_x-views-2" class="widget widget-boke-x-views widget_posts_thumbnail">
+      <h2 class="widget-title">浏览最多的文章</h2>
+      <ul>
+        <li class="clear">
+          <a href="/<%-RENDER_DATA.hotArticles[0].numberId%>.html" rel="bookmark">
+            <div class="thumbnail-wrap aside-thumbnail">
+              <img width="300" height="150" src="<%-RENDER_DATA.hotArticles[0].poster%>"
+                class="attachment-boke_x_widget_thumb size-boke_x_widget_thumb wp-post-image"
+                alt="<%-RENDER_DATA.hotArticles[0].title%>" />
+            </div>
+          </a>
+          <div class="entry-wrap">
+            <a href="/<%-RENDER_DATA.hotArticles[0].numberId%>.html"
+              rel="bookmark"><%-RENDER_DATA.hotArticles[0].title%></a>
+          </div>
+        </li>
+        <% RENDER_DATA.hotArticles.splice(1, 5).forEach(function(article, index) { %>
+        <li class="post-list">
+          <span><%-index+1%></span>
+          <a href="/<%-article.numberId%>.html" rel="bookmark"><%-article.title%></a>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+
+    <div id="boke_x-popular-2" class="widget widget-boke-x-popular widget_posts_thumbnail">
+      <h2 class="widget-title">评论最多的文章</h2>
+      <ul>
+        <li class="clear">
+          <a href="/<%-RENDER_DATA.commentTopArticles[0].numberId%>.html" rel="bookmark">
+            <div class="thumbnail-wrap aside-thumbnail">
+              <img width="300" height="150" src="<%-RENDER_DATA.commentTopArticles[0].poster%>"
+                class="attachment-boke_x_widget_thumb size-boke_x_widget_thumb wp-post-image"
+                alt="<%-RENDER_DATA.commentTopArticles[0].title%>" />
+            </div>
+          </a>
+          <div class="entry-wrap">
+            <a href="/<%-RENDER_DATA.commentTopArticles[0].numberId%>.html"
+              rel="bookmark"><%-RENDER_DATA.commentTopArticles[0].title%></a>
+          </div>
+        </li>
+        <% RENDER_DATA.commentTopArticles.splice(1, 5).forEach(function(article, index) { %>
+        <li class="post-list">
+          <span><%-index+1%></span>
+          <a href="/<%-article.numberId%>.html" rel="bookmark"><%-article.title%></a>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+</aside>
