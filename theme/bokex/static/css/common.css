@@ -1,3 +1,11 @@
 .menu-primary-container .current-menu-item a {
   color: #037ef3 !important; 
 }
+
+.footer-partners .partners-item img {
+  transition: all 0.4s;
+}
+
+.footer-partners .partners-item img:hover{
+  transform: scale(1.1);
+}

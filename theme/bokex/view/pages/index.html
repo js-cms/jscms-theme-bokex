@@ -2,28 +2,8 @@
 <html lang="zh-CN">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="HandheldFriendly" content="true">
-  <link rel="profile" href="http://gmpg.org/xfn/11">
-  <link type="text/css" media="all" href="<%-CONSTANT.THEME_STATIC%>/lib/autoptimize.css" rel="stylesheet" />
+  <% include ../common/head.html %>
   <link type="text/css" media="all" href="<%-CONSTANT.THEME_STATIC%>/css/index.css" rel="stylesheet" />
-  <title><%- WEB_CONFIG.site.title %></title>
-  <meta name="keywords" content="<%- WEB_CONFIG.site.keywords %>" />
-  <meta name="description" content="<%- WEB_CONFIG.site.description %>" />
-  <meta name='robots' content='noindex,follow' />
-  <link rel='dns-prefetch' href='//s.w.org' />
-  <script type='text/javascript' src='<%-CONSTANT.THEME_STATIC%>/lib/jquery.js'></script>
-  <script type='text/javascript'>
-    var usp_custom_field = "usp_custom_field";
-    var usp_custom_checkbox = "usp_custom_checkbox";
-    var usp_case_sensitivity = "false";
-    var usp_challenge_response = "2";
-    var usp_min_images = 0;
-    var usp_max_images = 1;
-    var usp_parsley_error = "\u9a8c\u8bc1\u9519\u8bef";
-  </script>
 </head>
 
 <body class="home blog wp-custom-logo hfeed">
@@ -109,15 +89,18 @@
           </div>
           <div id="recent-content" class="content-list">
             <% RENDER_PARAM.articles.forEach(function(article, index) { %>
-            <div id="post-<%-article._id%>"
-              class="clear post-<%-article._id%> post type-post status-publish format-standard has-post-thumbnail hentry category-finance">
+            <div id="post-<%-article.numberId%>"
+              class="clear post-<%-article.numberId%> post type-post status-publish format-standard has-post-thumbnail hentry category-finance">
               <a class="thumbnail-link" href="/<%-article.numberId%>.html">
                 <div class="thumbnail-wrap">
                   <img width="243" height="156" src="<%-article.poster%>"
                     class="attachment-boke_x_list_thumb size-boke_x_list_thumb wp-post-image"
-                    alt="<%-article.title%>" /></div>
+                    alt="<%-article.title%>" />
+                </div>
               </a>
-              <h2 class="entry-title"><a href="/<%-article.numberId%>.html"><%-article.title%></a></h2>
+              <h2 class="entry-title">
+                <a href="/<%-article.numberId%>.html"><%-article.title%></a>
+              </h2>
               <div class="entry-overview 	">
                 <div class="entry-summary">
                   <p><%-article.description%></p>
@@ -131,13 +114,22 @@
                   <span class="entry-like">
                     <span class="sl-wrapper">
                       <a href="" class="sl-button sl-button" title="点赞这篇文章">
-                        <span class="sl-count">
-                          <i class="fa fa-thumbs-o-up"></i> <%-article.likeTotal%><em>赞</em></span></a><span class="sl-loader"></span></span> </span> <span
-                    class="entry-views"><a href="https://www.zhutibaba.com/demo/bokex/375.html"><i
-                        class="flaticon-eye"></i> <%-article.visTotal%><em>阅读</em></a></span> <span class="entry-comment"><a
-                      href="https://www.zhutibaba.com/demo/bokex/375.html#respond" class="comments-link"><i
-                        class="flaticon-chat-comment-oval-speech-bubble-with-text-lines">
-                      </i> <%-article.commentTotal%><em>评论</em></a></span>
+                        <span class="sl-count"><i class="fa fa-thumbs-o-up"></i> <%-article.likeTotal%><em>赞</em></span>
+                      </a>
+                      <span class="sl-loader"></span>
+                    </span>
+                  </span>
+                  <span class="entry-views">
+                    <a href="/<%-article.numberId%>.html">
+                      <i class="flaticon-eye"></i> <%-article.visTotal%><em>阅读</em>
+                    </a>
+                  </span>
+                  <span class="entry-comment">
+                    <a href="/<%-article.numberId%>.html#respond" class="comments-link">
+                      <i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>
+                      <%-article.commentTotal%><em>评论</em>
+                    </a>
+                  </span>
                 </div>
               </div>
             </div>
@@ -146,232 +138,43 @@
         </main>
         <nav class="navigation pagination" role="navigation">
           <h2 class="screen-reader-text">文章导航</h2>
-          <div class="nav-links"><span aria-current='page' class='page-numbers current'>1</span> <a class='page-numbers'
-              href='https://www.zhutibaba.com/demo/bokex/page/2'>2</a> <span class="page-numbers dots">&hellip;</span>
-            <a class='page-numbers' href='https://www.zhutibaba.com/demo/bokex/page/6'>6</a> <a
-              class="next page-numbers" href="https://www.zhutibaba.com/demo/bokex/page/2">下一页</a></div>
+          <div class="nav-links">
+            <% if ( RENDER_PARAM.pagination.current > RENDER_PARAM.pagination.start ) { %>
+            <a class="next page-numbers"
+              href="/<%-RENDER_PARAM.pagination.prefix%>-<%-RENDER_PARAM.pagination.start%>.html">首页</a>
+            <% } else { %>
+            <a class="next page-numbers invalid" href="javascript:void(0);">首页</a>
+            <% } %>
+            <% RENDER_PARAM.pagination.pages.forEach(function(page, index) { %>
+            <% if ( page.isCurrent ) { %>
+            <span aria-current="page" class="page-numbers current">
+              <%-page.num%></span>
+            <% } else { %>
+            <a class="page-numbers" href="/<%-RENDER_PARAM.pagination.prefix%>-<%-page.num%>.html">
+              <%-page.num%></a>
+            <% } %>
+            <% }) %>
+            <% if ( RENDER_PARAM.pagination.current < RENDER_PARAM.pagination.end ) { %>
+            <a class="next page-numbers"
+              href="/<%-RENDER_PARAM.pagination.prefix%>-<%-RENDER_PARAM.pagination.end%>.html">尾页</a>
+            <% } else { %>
+            <a class="next page-numbers invalid" href="javascript:void(0);">尾页</a>
+            <% } %>
+          </div>
         </nav>
       </div>
 
       <% include ../common/right-aside.html %>
 
     </div>
-    <footer id="colophon" class="site-footer">
-      <div class="clear"></div>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-partners clear">
-            <div class="partner-title clear"> <strong>合作伙伴</strong> <span class="partner-desc">自定义文字描述</span> <span
-                class="partner-link"> <a href="https://www.zhutibaba.com/contact" target="_blank"> 联系我们 <i
-                    class="fa fa-angle-right"></i> </a> </span></div>
-            <div class="partner-wrap">
-              <div id="media_image-12" class="partner-image widget_media_image"><img width="200" height="66"
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/baidu.png"
-                  class="image wp-image-641  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" />
-              </div>
-              <div id="media_image-2" class="partner-image widget_media_image"><img width="160" height="54"
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/weibo.png"
-                  class="image wp-image-651  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" />
-              </div>
-              <div id="media_image-14" class="partner-image widget_media_image"><img width="135" height="44"
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/360.png"
-                  class="image wp-image-639  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" />
-              </div>
-              <div id="media_image-16" class="partner-image widget_media_image"><img width="200" height="50"
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/toutiao.png"
-                  class="image wp-image-649  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" />
-              </div>
-              <div id="media_image-15" class="partner-image widget_media_image"><img width="200" height="67"
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/58.png"
-                  class="image wp-image-638  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" />
-              </div>
-              <div id="media_image-13" class="partner-image widget_media_image"><img width="200" height="70"
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/alipay.png"
-                  class="image wp-image-640  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" />
-              </div>
-              <div id="media_image-11" class="partner-image widget_media_image"><img width="175" height="49"
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/boc.png"
-                  class="image wp-image-642  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" />
-              </div>
-              <div id="media_image-10" class="partner-image widget_media_image"><img width="200" height="76"
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/cctv.png"
-                  class="image wp-image-643  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" />
-              </div>
-              <div id="media_image-9" class="partner-image widget_media_image"><img width="200" height="65"
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/didi.png"
-                  class="image wp-image-644  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" />
-              </div>
-              <div id="media_image-8" class="partner-image widget_media_image"><img width="200" height="95"
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/iqiyi.png"
-                  class="image wp-image-645  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" />
-              </div>
-              <div id="media_image-7" class="partner-image widget_media_image"><img width="200" height="77"
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/qq.png"
-                  class="image wp-image-646  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" />
-              </div>
-              <div id="media_image-6" class="partner-image widget_media_image"><img width="200" height="64"
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/suning.png"
-                  class="image wp-image-647  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" />
-              </div>
-              <div id="media_image-5" class="partner-image widget_media_image"><img width="200" height="83"
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/taobao.png"
-                  class="image wp-image-648  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" />
-              </div>
-              <div id="media_image-3" class="partner-image widget_media_image"><img width="280" height="140"
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/tuniu.png"
-                  class="image wp-image-650  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" />
-              </div>
-            </div>
-          </div>
-          <div class="clear"></div>
-          <div class="friend clear">
-            <div class="friend-title clear">
-              <h3>友情链接</h3> <span class="friend-desc">自定义文字描述</span> <span class="friend-link"> <a
-                  href="https://www.zhutibaba.com/contact" target="_blank"> 交换链接 <i class="fa fa-angle-right"></i>
-                </a>
-              </span>
-            </div>
-            <div class="menu-footer-container">
-              <ul id="friend-menu" class="friend-nav">
-                <li id="menu-item-611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-611"><a
-                    target="_blank" href="https://www.zhutibaba.com/">友情链接1</a></li>
-                <li id="menu-item-612" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-612"><a
-                    target="_blank" href="https://www.zhutibaba.com/">友情链接2</a></li>
-                <li id="menu-item-613" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-613"><a
-                    target="_blank" href="https://www.zhutibaba.com/">友情链接3</a></li>
-                <li id="menu-item-614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a
-                    target="_blank" href="https://www.zhutibaba.com/">友情链接4</a></li>
-                <li id="menu-item-615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a
-                    target="_blank" href="https://www.zhutibaba.com/">友情链接5</a></li>
-                <li id="menu-item-616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a
-                    target="_blank" href="https://www.zhutibaba.com/">友情链接6</a></li>
-                <li id="menu-item-617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a
-                    target="_blank" href="https://www.zhutibaba.com/">友情链接7</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="site-bottom" class="clear">
-        <div class="container">
-          <div class="footer-left">
-            <div class="footer-logo"> <img
-                src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/footer-logo.png" alt="" />
-            </div>
-            <div class="menu-posts-container">
-              <ul id="footer-menu" class="footer-nav">
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-714"><a
-                    href="https://www.zhutibaba.com/demo/bokex/zhuanti-full">全宽专题</a></li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-712"><a target="_blank"
-                    href="https://www.zhutibaba.com/demo/bokex/posts-by-cat">按目录分类</a></li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-713"><a target="_blank"
-                    href="https://www.zhutibaba.com/demo/bokex/posts-100">最新100篇</a></li>
-              </ul>
-            </div>
-            <div class="site-info"> &copy; 2019 <a href="https://www.zhutibaba.com/demo/bokex">博客X</a> - 主题巴巴原创 <a
-                href="http://www.zhutibaba.com/" target="_blank">WordPress 主题</a></div>
-          </div>
-          <div class="footer-search">
-            <form id="footer-searchform" method="get" action="https://www.zhutibaba.com/demo/bokex/"> <input
-                type="search" name="s" class="search-input" placeholder="请输入关键词" autocomplete="off"> <button
-                type="submit" class="search-submit">搜索</button></form>
-            <div class="popular-search"> 热搜: <a
-                href="https://www.zhutibaba.com/demo/bokex/tag/%e6%a0%87%e7%ad%be%e4%b8%80"
-                class="tag-cloud-link tag-link-28 tag-link-position-1" style="font-size: 13px;">标签一</a> <a
-                href="https://www.zhutibaba.com/demo/bokex/tag/%e6%a0%87%e7%ad%be%e4%ba%8c"
-                class="tag-cloud-link tag-link-30 tag-link-position-2" style="font-size: 13px;">标签二</a> <a
-                href="https://www.zhutibaba.com/demo/bokex/tag/%e6%a0%87%e7%ad%be3"
-                class="tag-cloud-link tag-link-27 tag-link-position-3" style="font-size: 13px;">标签3</a> <a
-                href="https://www.zhutibaba.com/demo/bokex/tag/%e6%a0%87%e7%ad%be1"
-                class="tag-cloud-link tag-link-25 tag-link-position-4" style="font-size: 13px;">标签1</a> <a
-                href="https://www.zhutibaba.com/demo/bokex/tag/%e6%a0%87%e7%ad%be2"
-                class="tag-cloud-link tag-link-26 tag-link-position-5" style="font-size: 13px;">标签2</a></div>
-          </div>
-        </div>
-      </div>
-    </footer>
+
+    <% include ../common/foot.html %>
+
   </div>
-  <div class="bottom-right">
-    <div class="icon-contact tooltip bottom-icon"> <span class="icon-link"> <span class="icon"><i
-            class="fa fa-phone"></i></span> <span class="text">联系我们</span> </span>
-      <div class="left-space">
-        <div class="left">
-          <div class="contact-info">
-            <h3>联系我们</h3> <strong>0898-88881688</strong>
-            <p>在线咨询: <a href="http://wpa.qq.com/msgrd?v=3&uin=3599145122&site=qq&menu=yes" target="_blank"><img
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/themes/boke-x/assets/img/qqchat.gif"
-                  alt="QQ交谈" /></a></p>
-            <p>邮箱: email@wangzhan.com</p>
-            <p>工作时间：周一至周五，9:00-17:30，节假日休息</p>
-          </div> <i></i>
-        </div>
-      </div>
-    </div>
-    <div class="icon-weixin tooltip bottom-icon"> <span class="icon-link"> <span class="icon"><i
-            class="fa fa-wechat"></i></span> <span class="text">关注微信</span> </span>
-      <div class="left-space">
-        <div class="left"> <img
-            src="https://www.zhutibaba.com/demo/bokex/wp-content/themes/boke-x/assets/img/weixin-qrcode.png"
-            alt="微信扫一扫关注我们" />
-          <h3>微信扫一扫关注我们</h3> <i></i>
-        </div>
-      </div>
-    </div>
-    <div class="icon-weibo bottom-icon"> <a href="https://weibo.com/zhutibaba" target="_blank"> <span class="icon"><i
-            class="fa fa-weibo"></i></span> <span class="text">关注微博</span> </a></div>
-    <div id="back-top" class="bottom-icon"> <a href="#top" title="返回顶部"> <span class="icon"><i
-            class="fa fa-chevron-up"></i></span> <span class="text">返回顶部</span> </a></div>
-  </div>
-  <script type='text/javascript' src='<%-CONSTANT.THEME_STATIC%>/lib/autoptimize_single.js?ver=5.1.1'></script>
-  <div id="wsocial-dialog-login" style="display:none;position: fixed;z-index: 999;">
-    <div class="xh-cover"></div>
-    <div class="xh-regbox xh-window">
-      <div class="xh-title">登录</div>
-      <form class="xh-form">
-        <div class="commonlogin061a4918563daeaf58b4880c44443e4c0 fields-error"></div>
-        <div class="xh-form-group"> <label class="required">用户名/邮箱/手机</label> <input type="text"
-            id="login061a4918563daeaf58b4880c44443e4c0_login_name" name="login_name" placeholder="请输入用户名，邮箱或手机"
-            class="form-control" /></div>
-        <div class="xh-form-group"> <label class="required">密码</label> <input type="password"
-            id="login061a4918563daeaf58b4880c44443e4c0_login_password" name="login_password" value="" placeholder=""
-            class="form-control" /></div>
-        <div class="xh-form-group mt10"> <button type="button" id="btn-login" onclick="window.xh_social_view.login();"
-            class="xh-btn xh-btn-primary xh-btn-block xh-btn-lg">登录</button></div>
-      </form>
-      <div class="xh-user-register xh-w">
-        <a href="https://www.zhutibaba.com/demo/bokex/register">注册</a>|<a
-          href="https://www.zhutibaba.com/demo/wp-login.php?action=lostpassword">忘记密码？</a></div> <a class="xh-close"
-        href="javascript:void(0);"></a>
-    </div>
-  </div>
-  <script>
-    (function ($) {
-      $(document).ready(function () {
-        "use strict";
-        $('#primary-menu').slicknav({
-          prependTo: '#slick-mobile-menu',
-          allowParentLinks: true,
-          label: '导航'
-        });
-      });
-    })(jQuery);
-  </script>
-  <script type="text/javascript">
-    (function ($) {
-      $(document).ready(function () {
-        "use strict";
-        $(window).load(function () {
-          var stickySidebar = new StickySidebar('#secondary', {
-            topSpacing: 20,
-            bottomSpacing: 20,
-            containerSelector: '.site_container',
-            innerWrapperSelector: '.sidebar__inner'
-          });
-        });
-      });
-    })(jQuery);
-  </script>
-  <script type="text/javascript" defer src="<%-CONSTANT.THEME_STATIC%>/lib/autoptimize.js"></script>
+
+  <% include ../common/bottom-right.html %>
+
+  <% include ../common/common-script.html %>
 </body>
 
 </html>

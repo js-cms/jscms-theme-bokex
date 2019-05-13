@@ -59,8 +59,8 @@
         </li>
       </ul>
       <div class="header-search">
-        <form id="searchform" method="get" action="https://www.zhutibaba.com/demo/bokex/">
-          <input type="search" name="s" class="search-input" placeholder="请输入关键词" autocomplete="off">
+        <form id="searchform" method="get" action="/s">
+          <input type="search" name="s" class="search-input" placeholder="请输入关键字" autocomplete="off" <% if ( RENDER_PARAM.pageType === 'search' && RENDER_PARAM.keyword ) { %>value="<%-RENDER_PARAM.keyword%>"<% } %>">
           <button type="submit" class="search-submit">搜索</button>
         </form>
       </div>

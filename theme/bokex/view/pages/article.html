@@ -2,214 +2,58 @@
 <html lang="zh-CN">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="HandheldFriendly" content="true">
-  <link rel="profile" href="http://gmpg.org/xfn/11">
-  <link type="text/css" media="all" href="<%-CONSTANT.THEME_STATIC%>/lib/autoptimize.css" rel="stylesheet" />
-  <title><%- WEB_CONFIG.site.title %></title>
-  <meta name="keywords" content="<%- WEB_CONFIG.site.keywords %>" />
-  <meta name="description" content="<%- WEB_CONFIG.site.description %>" />
-  <meta name='robots' content='noindex,follow' />
-  <link rel='dns-prefetch' href='//s.w.org' />
-  <script type='text/javascript' src='<%-CONSTANT.THEME_STATIC%>/lib/jquery.js'></script>
-  <link rel='prev' title='呼伦贝尔: 你不可错过的辽阔草原和兴安秋色!' href='https://www.zhutibaba.com/demo/bokex/176.html' />
-  <link rel='next' title='美拟补贴贸易战中受损农场主遭反对：不要补贴要市场' href='https://www.zhutibaba.com/demo/bokex/375.html' />
-  <link rel="canonical" href="https://www.zhutibaba.com/demo/bokex/582.html" />
-  <link rel='shortlink' href='https://www.zhutibaba.com/demo/bokex/?p=582' />
+  <% include ../common/head.html %>
+  <% if (RENDER_PARAM.prevArticle) { %>
+  <link rel='prev' title='<%-RENDER_PARAM.prevArticle.title%>' href='h<%-WEB_CONFIG.origin%>/<%-RENDER_PARAM.prevArticle.numberId%>.html' />
+  <% } %>
+  <% if (RENDER_PARAM.nextArticle) { %>
+  <link rel='prev' title='<%-RENDER_PARAM.nextArticle.title%>' href='<%-WEB_CONFIG.origin%>/<%-RENDER_PARAM.nextArticle.numberId%>.html' />
+  <% } %>
+  <link rel="canonical" href="<%-WEB_CONFIG.origin%>/<%-RENDER_PARAM.article.numberId%>.html" />
+  <link rel='shortlink' href='<%-WEB_CONFIG.origin%>/<%-RENDER_PARAM.article.numberId%>.html' />
+  <link type="text/css" media="all" href="<%-CONSTANT.THEME_STATIC%>/css/article.css" rel="stylesheet" />
 </head>
 
 <body class="post-template-default single single-post postid-582 single-format-standard wp-custom-logo">
   <div id="page" class="site">
-    <header id="masthead" class="site-header clear">
-      <div class="container">
-        <div class="site-branding">
-          <div id="logo"> <span class="helper"></span> <a href="https://www.zhutibaba.com/demo/bokex/"
-              class="custom-logo-link" rel="home" itemprop="url"><img width="190" height="110"
-                src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/logo.png"
-                class="custom-logo" alt="博客X" itemprop="logo" /></a></div>
-        </div>
-        <nav id="primary-nav" class="primary-navigation tablet_menu_col_5 phone_menu_col_5">
-          <div class="menu-primary-container">
-            <ul id="primary-menu" class="sf-menu">
-              <li id="menu-item-629"
-                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-629"><a
-                  href="https://www.zhutibaba.com/demo/bokex/">首页</a></li>
-              <li id="menu-item-673"
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-673"><a
-                  href="https://www.zhutibaba.com/demo/bokex/zhuanti">专题</a>
-                <ul class="sub-menu">
-                  <li id="menu-item-676" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-676">
-                    <a href="https://www.zhutibaba.com/demo/bokex/zhuanti-full">全宽专题列表</a></li>
-                  <li id="menu-item-678"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-678"><a
-                      href="https://www.zhutibaba.com/demo/bokex/house">专题页面</a></li>
-                </ul>
-              </li>
-              <li id="menu-item-690"
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-690"><a
-                  href="https://www.zhutibaba.com/demo/bokex/pages">页面</a>
-                <ul class="sub-menu">
-                  <li id="menu-item-689" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-689">
-                    <a target="_blank" href="https://www.zhutibaba.com/demo/bokex/posts-100">最新文章 (100篇)</a></li>
-                  <li id="menu-item-688" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-688">
-                    <a target="_blank" href="https://www.zhutibaba.com/demo/bokex/posts-by-cat">最新文章 (按目录)</a></li>
-                  <li id="menu-item-693" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-693">
-                    <a href="https://www.zhutibaba.com/demo/bokex/full-width">全宽页面</a></li>
-                </ul>
-              </li>
-              <li id="menu-item-387"
-                class="color2 menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-387">
-                <a href="https://www.zhutibaba.com/demo/bokex/news">新闻</a>
-                <ul class="sub-menu">
-                  <li id="menu-item-591"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-591"><a
-                      href="https://www.zhutibaba.com/demo/bokex/news">下拉菜单 1</a></li>
-                  <li id="menu-item-590"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-590"><a
-                      href="https://www.zhutibaba.com/demo/bokex/news">下拉菜单 2</a></li>
-                  <li id="menu-item-592"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-592"><a
-                      href="https://www.zhutibaba.com/demo/bokex/news">下拉菜单 3</a></li>
-                </ul>
-              </li>
-              <li id="menu-item-421"
-                class="color3 menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-421">
-                <a href="https://www.zhutibaba.com/demo/bokex/tech">科技</a>
-                <ul class="sub-menu">
-                  <li id="menu-item-596"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-596">
-                    <a href="https://www.zhutibaba.com/demo/bokex/tech">创业俱乐部</a></li>
-                  <li id="menu-item-597"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-597">
-                    <a href="https://www.zhutibaba.com/demo/bokex/tech">区块链</a></li>
-                  <li id="menu-item-598"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-598">
-                    <a href="https://www.zhutibaba.com/demo/bokex/tech">互联网</a></li>
-                  <li id="menu-item-603"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-603">
-                    <a href="https://www.zhutibaba.com/demo/bokex/tech">手机数码</a></li>
-                  <li id="menu-item-604"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-604">
-                    <a href="https://www.zhutibaba.com/demo/bokex/tech">WordPress</a></li>
-                </ul>
-              </li>
-              <li id="menu-item-587"
-                class="color16 menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-587">
-                <a href="https://www.zhutibaba.com/demo/bokex/house">房产</a>
-                <ul class="sub-menu">
-                  <li id="menu-item-605"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-605"><a
-                      href="https://www.zhutibaba.com/demo/bokex/house">新房</a></li>
-                  <li id="menu-item-607"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-607"><a
-                      href="https://www.zhutibaba.com/demo/bokex/house">二手房</a></li>
-                  <li id="menu-item-610"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-610"><a
-                      href="https://www.zhutibaba.com/demo/bokex/house">装修建材</a></li>
-                  <li id="menu-item-608"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-608"><a
-                      href="https://www.zhutibaba.com/demo/bokex/house">家具家居</a></li>
-                  <li id="menu-item-609"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-609"><a
-                      href="https://www.zhutibaba.com/demo/bokex/house">海外置业</a></li>
-                </ul>
-              </li>
-              <li id="menu-item-420"
-                class="color4 menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-420">
-                <a href="https://www.zhutibaba.com/demo/bokex/auto">汽车</a>
-                <ul class="sub-menu">
-                  <li id="menu-item-599"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-599"><a
-                      href="https://www.zhutibaba.com/demo/bokex/auto">上市新车</a></li>
-                  <li id="menu-item-601"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-601"><a
-                      href="https://www.zhutibaba.com/demo/bokex/auto">用车小百科</a></li>
-                  <li id="menu-item-600"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-600"><a
-                      href="https://www.zhutibaba.com/demo/bokex/auto">车型对比</a></li>
-                  <li id="menu-item-602"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-602"><a
-                      href="https://www.zhutibaba.com/demo/bokex/auto">汽车测评</a></li>
-                </ul>
-              </li>
-              <li id="menu-item-586"
-                class="color9 menu-item menu-item-type-taxonomy menu-item-object-category menu-item-586"><a
-                  href="https://www.zhutibaba.com/demo/bokex/finance">财经</a></li>
-              <li id="menu-item-422"
-                class="color10 menu-item menu-item-type-taxonomy menu-item-object-category menu-item-422"><a
-                  href="https://www.zhutibaba.com/demo/bokex/food">美食</a></li>
-              <li id="menu-item-589"
-                class="color12 menu-item menu-item-type-custom menu-item-object-custom menu-item-589"><a target="_blank"
-                  href="https://www.zhutibaba.com/themes/bokex">下载</a></li>
-            </ul>
-          </div>
-        </nav>
-        <div class="header-right">
-          <ul>
-            <li class="header-login"> <a
-                href="https://www.zhutibaba.com/demo/bokex/login?redirect_to=https%3A%2F%2Fwww.zhutibaba.com%2Fdemo%2Fbokex%2F582.html"
-                title="登录">登录</a></li>
-            <li class="header-register"> <a href="https://www.zhutibaba.com/demo/bokex/register" title="注册">注册</a></li>
-            <li class="header-submit"> <a
-                href="https://www.zhutibaba.com/demo/bokex/login?redirect_to=https%3A%2F%2Fwww.zhutibaba.com%2Fdemo%2Fbokex%2F582.html?redirect_to=https://www.zhutibaba.com/demo/bokex/tougao"
-                title="用户投稿">投稿</a></li>
-            <li class="header-search-icon"> <span class="search-icon"> <i class="fa fa-search"></i> <i
-                  class="fa fa-close"></i> </span></li>
-          </ul>
-          <div class="header-search">
-            <form id="searchform" method="get" action="https://www.zhutibaba.com/demo/bokex/"> <input type="search"
-                name="s" class="search-input" placeholder="请输入关键词" autocomplete="off"> <button type="submit"
-                class="search-submit">搜索</button></form>
-          </div>
-        </div>
-      </div>
-    </header>
+    
+    <% include ../common/top-menu.html %>
+
     <div id="content" class="site-content site_container container clear">
       <div id="primary" class="content-area">
         <div class="content-wrapper">
           <main id="main" class="site-main">
-            <article id="post-582"
-              class="post-582 post type-post status-publish format-standard has-post-thumbnail hentry category-tech tag-28 tag-29 tag-30">
+            <article id="post-<%-RENDER_PARAM.article.numberId%>" class="post-<%-RENDER_PARAM.article.numberId%> post type-post status-publish format-standard has-post-thumbnail hentry category-tech">
               <div class="single-breadcrumbs"> <span>您的位置</span> <i class="fa fa-angle-right"></i> <a
-                  href="https://www.zhutibaba.com/demo/bokex">首页</a> <i class="fa fa-angle-right"></i> <a
-                  href="https://www.zhutibaba.com/demo/bokex/tech ">科技</a></div>
+                  href="/">首页</a> <i class="fa fa-angle-right"></i> <a
+                  href="/<%-RENDER_PARAM.article.categoryId.alias%>.html"><%-RENDER_PARAM.article.categoryId.name%></a></div>
               <header class="entry-header">
-                <h1 class="entry-title">苹果新品iPhone 9即将发布 颜值和配置有惊喜</h1>
-                <div class="entry-meta"> <span class="entry-author"> 作者: <a
-                      href="https://www.zhutibaba.com/demo/bokex/author/zhutibaba"> 网站小编 </a> </span> <span
-                    class="entry-source"> 来源: 新浪 </span> <span class="entry-date"> 发布: 2018年8月13日 </span> <span
-                    class="entry-views"><i class="flaticon-eye"></i> 1,075<em>阅读</em></span> <span
-                    class="entry-comment"><a href="https://www.zhutibaba.com/demo/bokex/582.html#comments"
+                <h1 class="entry-title"><%-RENDER_PARAM.article.title%></h1>
+                <div class="entry-meta"> 
+                  <span class="entry-author"> 作者: <a href="/author/<%-RENDER_PARAM.article.userId.nickname%>.html"> <%-RENDER_PARAM.article.userId.nickname%> </a> </span> 
+                  <% if (RENDER_PARAM.article.isSource) { %>
+                  <span class="entry-source"> 来源: <a href="<%-RENDER_PARAM.article.sourceUrl ? RENDER_PARAM.article.sourceUrl : 'javascript:void(0);'%>" target="_blank"><%-RENDER_PARAM.article.sourceName%> </span> 
+                  <% } %>
+                  <span class="entry-date"> 发布: <%-helper.toDate(RENDER_PARAM.article.createTime, 3)%> </span> <span
+                    class="entry-views"><i class="flaticon-eye"></i> <%-RENDER_PARAM.article.visTotal%><em>阅读</em></span> <span
+                    class="entry-comment"><a href="/<%-RENDER_PARAM.article.numberId%>.html#comments"
                       class="comments-link"><i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>
-                      3<em>评论</em></a></span> <span class="custom-share"> <span class="bdsharebuttonbox"> <a href="#"
+                      <%-RENDER_PARAM.article.commentTotal%><em>评论</em></a></span> <span class="custom-share"> <span class="bdsharebuttonbox"> <a href="#"
                         class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a> <a href="#" class="bds_weixin"
                         data-cmd="weixin" title="分享到微信"></a> <a href="#" class="bds_sqq" data-cmd="sqq"
                         title="分享给QQ好友"></a> <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a> </span>
                   </span></div>
               </header>
               <div class="single-excerpt">
-                <p>来自外媒的报道称，即将上市的iPhone 9在外观和颜值上都做出了巨大的变革，再加上更合理的价格，果粉圈迅速沸腾了。</p>
+                <p><%-RENDER_PARAM.article.description%></p>
               </div>
-              <div class="entry-content"> <img width="780" height="460"
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/08/sticky1-780x460.jpg"
-                  class="attachment-boke_x_single_thumb size-boke_x_single_thumb wp-post-image" alt="" />
-                <p>距离苹果手机发布会只有1个月的时间了，果粉们对即将发布的iPhone 9充满了期待。虽说去年苹果推出的iPhone X有不少槽点，但刘海屏的普及，还是让网友感受到了苹果的魅力。</p>
-                <p>来自外媒的报道称，即将上市的iPhone 9在外观和颜值上都做出了巨大的变革，再加上更合理的价格，果粉圈迅速沸腾了。综合各方面的消息来看，即将上市的iPhone 9主要有以下几大亮点。</p>
-                <p>1、丑爆的刘海屏消失了。去年搭载全面屏的iPhone X上市后，刘海式的全面屏遭到果粉们的疯狂吐槽。在新一代产品iPhone 9中，丑爆的刘海屏消失了。从外媒曝光的谍照来看，iPhone
-                  9同样是全面屏，只不过取消了刘海，四周是极窄的黑色边框。</p>
-                <p>不难看出，搭载了全面屏的iPhone 9外观与三星S9非常相似，屏占比也更高了。取消刘海式全面屏，iPhone 9的这一进步，让果粉们尖叫。</p>
-                <p>2、弹出式摄像头。在vivo和OPPO相继推出弹出式摄像头后，作为全球手机创新鼻祖的苹果怎么会示弱。据悉，即将上市的iPhone 9也把摄像头隐藏起来，需要时自动弹出来。不过，低版本的iPhone
-                  9后置仍旧是单摄像头。</p>
-                <p>苹果在新一代产品iPhone 9中使用弹出式摄像头设计，并取消了刘海式的设计，最终目的还是为了提高屏占比。这样一来，使用iPhone 9吃鸡更爽。而且，iPhone
-                  9的屏幕尺寸也会有新的突破。有传闻称，iPhone 9 Plus搭载了一块6.5英寸的全面屏。</p>
-                <p>3、配色更丰富。一直以来，苹果手机的配置都很单调。自从库克执掌苹果帅印后，苹果手机的颜色，有了中国红和玫瑰金这样的个性配色。在新一代产品iPhone 9手机上，配色更加丰富。</p>
-                <p>知名苹果分析师郭明池发布的报告称，为了提高苹果手机的销量，iPhone 9将会拥有更丰富的配色，除了灰色和白色这两个经典配色外，增加了蓝色、红色和橙色。看来，苹果也在向国产手机学习，玩配色。</p>
-                <p>与上一代产品相比，iPhone 9的外观更符合果粉们的审美。取消了刘海屏式的设计后，更丰富的配色和弹出式摄像头，以及快充技术，这都让果粉们对iPhone
-                  9充满了期待。如果传言属实，苹果将会威胁三星的霸主地位。</p>
+              <div class="entry-content">
+                <img width="780" height="460" src="<%-RENDER_PARAM.article.poster%>" class="attachment-boke_x_single_thumb size-boke_x_single_thumb wp-post-image" alt="<%-RENDER_PARAM.article.title%>" />
+                <p><%-RENDER_PARAM.article.content%></p>
               </div>
-              <div class="single-credit"> 本文来自网络，不代表博客X立场，转载请注明出处：https://www.zhutibaba.com/demo/bokex/582.html</div>
+              <div class="single-credit">
+                <%-WEB_CONFIG.site.articleStatement%>
+              </div>
               <div class="entry-footer clear">
                 <div id="myModal" class="modal">
                   <div class="modal-content clear">
@@ -400,426 +244,19 @@
           </main>
         </div>
       </div>
-      <aside id="secondary" class="widget-area sidebar">
-        <div class="sidebar__inner">
-          <div id="happythemes-ad-2" class="widget widget_ad ad-widget">
-            <div class="adwidget"><a href="https://www.zhutibaba.com/themes/bokex" target="_blank"><img
-                  src="https://www.zhutibaba.com/demo/zimeiti1/wp-content/uploads/sites/3/2018/07/ad-2.jpg"
-                  alt="" /></a></div>
-            <h2 class="widget-title">广告</h2>
-          </div>
-          <div id="boke_x-views-2" class="widget widget-boke-x-views widget_posts_thumbnail">
-            <h2 class="widget-title">浏览最多的文章</h2>
-            <ul>
-              <li class="clear"><a href="https://www.zhutibaba.com/demo/bokex/375.html" rel="bookmark">
-                  <div class="thumbnail-wrap"><img width="300" height="150"
-                      src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/p2-300x150.jpeg"
-                      class="attachment-boke_x_widget_thumb size-boke_x_widget_thumb wp-post-image" alt="" /></div>
-                </a>
-                <div class="entry-wrap"><a href="https://www.zhutibaba.com/demo/bokex/375.html"
-                    rel="bookmark">美拟补贴贸易战中受损农场主遭反对：不要补贴要市场</a></div>
-              </li>
-              <li class="post-list"><span>1</span><a href="https://www.zhutibaba.com/demo/bokex/176.html"
-                  rel="bookmark">呼伦贝尔: 你不可错过的辽阔草原和兴安秋色!</a></li>
-              <li class="post-list"><span>2</span><a href="https://www.zhutibaba.com/demo/bokex/294.html"
-                  rel="bookmark">超美的三亚,5天4晚全五星酒店高大上自由行</a></li>
-              <li class="post-list"><span>3</span><a href="https://www.zhutibaba.com/demo/bokex/168.html"
-                  rel="bookmark">JEEP全新牧马人高清官图曝光,彰显与时俱进的新一代野性!</a></li>
-              <li class="post-list"><span>4</span><a href="https://www.zhutibaba.com/demo/bokex/70.html"
-                  rel="bookmark">世界杯最大牌女球迷，一举动令人钦佩</a></li>
-              <li class="post-list"><span>5</span><a href="https://www.zhutibaba.com/demo/bokex/355.html"
-                  rel="bookmark">百胜中国“捐一元”开启第十一年爱心之旅</a></li>
-            </ul>
-          </div>
-          <div id="happythemes-ad-3" class="widget widget_ad ad-widget">
-            <div class="adwidget"><a href="https://www.zhutibaba.com/themes/bokex" target="_blank"><img
-                  src="https://www.zhutibaba.com/demo/zimeiti1/wp-content/uploads/sites/3/2018/07/ad-1.jpg"
-                  alt="" /></a></div>
-            <h2 class="widget-title">广告</h2>
-          </div>
-          <div id="boke_x-popular-2" class="widget widget-boke-x-popular widget_posts_thumbnail">
-            <h2 class="widget-title">评论最多的文章</h2>
-            <ul>
-              <li class="clear"><a href="https://www.zhutibaba.com/demo/bokex/87.html" rel="bookmark">
-                  <div class="thumbnail-wrap"><img width="300" height="150"
-                      src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/07/23-300x150.png"
-                      class="attachment-boke_x_widget_thumb size-boke_x_widget_thumb wp-post-image" alt="" /></div>
-                </a>
-                <div class="entry-wrap"><a href="https://www.zhutibaba.com/demo/bokex/87.html" rel="bookmark">拉丁美洲的春季
-                    秘鲁探秘的最佳时节</a></div>
-              </li>
-              <li class="post-list"><span>1</span><a href="https://www.zhutibaba.com/demo/bokex/70.html"
-                  rel="bookmark">世界杯最大牌女球迷，一举动令人钦佩</a></li>
-              <li class="post-list"><span>2</span><a href="https://www.zhutibaba.com/demo/bokex/176.html"
-                  rel="bookmark">呼伦贝尔: 你不可错过的辽阔草原和兴安秋色!</a></li>
-              <li class="post-list"><span>3</span><a href="https://www.zhutibaba.com/demo/bokex/292.html"
-                  rel="bookmark">在WordPress网站写的第一篇文章</a></li>
-              <li class="post-list"><span>4</span><a href="https://www.zhutibaba.com/demo/bokex/335.html"
-                  rel="bookmark">彭博社: 130亿美元的中国电竞市场 腾讯只想当主演</a></li>
-              <li class="post-list"><span>5</span><a href="https://www.zhutibaba.com/demo/bokex/341.html"
-                  rel="bookmark">海关总署：已立即暂停采购和使用长春长生各类疫苗</a></li>
-            </ul>
-          </div>
-          <div id="post-nav" class="clear">
-            <div class="post-previous"> <a class="previous" href="https://www.zhutibaba.com/demo/bokex/176.html">
-                <span><i class="fa fa-angle-left"></i> 上一篇</span>
-                <div class="thumbnail-wrap"> <img width="300" height="150"
-                    src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/07/g8-300x150.jpg"
-                    class="attachment-boke_x_widget_thumb size-boke_x_widget_thumb wp-post-image" alt="" /></div>
-                <h4>呼伦贝尔: 你不可错过的辽阔草原和兴安秋色!</h4> <small>2018年8月3日 08:47</small>
-                <div class="gradient"></div>
-              </a></div>
-          </div>
-        </div>
-      </aside>
+      
+      <% include ../common/right-aside.html %>
+
     </div>
-    <footer id="colophon" class="site-footer">
-      <div class="clear"></div>
-      <div id="site-bottom" class="clear">
-        <div class="container">
-          <div class="footer-left">
-            <div class="footer-logo"> <img
-                src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/10/footer-logo.png" alt="" />
-            </div>
-            <div class="menu-posts-container">
-              <ul id="footer-menu" class="footer-nav">
-                <li id="menu-item-714" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-714"><a
-                    href="https://www.zhutibaba.com/demo/bokex/zhuanti-full">全宽专题</a></li>
-                <li id="menu-item-710" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-710"><a
-                    target="_blank" href="https://www.zhutibaba.com/themes/bokex">直达链接</a></li>
-                <li id="menu-item-711" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-711"><a
-                    target="_blank" href="https://www.zhutibaba.com/themes">购买主题</a></li>
-                <li id="menu-item-712" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-712"><a
-                    target="_blank" href="https://www.zhutibaba.com/demo/bokex/posts-by-cat">按目录分类</a></li>
-                <li id="menu-item-713" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-713"><a
-                    target="_blank" href="https://www.zhutibaba.com/demo/bokex/posts-100">最新100篇</a></li>
-              </ul>
-            </div>
-            <div class="site-info"> &copy; 2019 <a href="https://www.zhutibaba.com/demo/bokex">博客X</a> - 主题巴巴原创 <a
-                href="http://www.zhutibaba.com/" target="_blank">WordPress 主题</a></div>
-          </div>
-          <div class="footer-search">
-            <form id="footer-searchform" method="get" action="https://www.zhutibaba.com/demo/bokex/"> <input
-                type="search" name="s" class="search-input" placeholder="请输入关键词" autocomplete="off"> <button
-                type="submit" class="search-submit">搜索</button></form>
-            <div class="popular-search"> 热搜: <a
-                href="https://www.zhutibaba.com/demo/bokex/tag/%e6%a0%87%e7%ad%be%e4%b8%80"
-                class="tag-cloud-link tag-link-28 tag-link-position-1" style="font-size: 13px;">标签一</a> <a
-                href="https://www.zhutibaba.com/demo/bokex/tag/%e6%a0%87%e7%ad%be%e4%ba%8c"
-                class="tag-cloud-link tag-link-30 tag-link-position-2" style="font-size: 13px;">标签二</a> <a
-                href="https://www.zhutibaba.com/demo/bokex/tag/%e6%a0%87%e7%ad%be3"
-                class="tag-cloud-link tag-link-27 tag-link-position-3" style="font-size: 13px;">标签3</a> <a
-                href="https://www.zhutibaba.com/demo/bokex/tag/%e6%a0%87%e7%ad%be1"
-                class="tag-cloud-link tag-link-25 tag-link-position-4" style="font-size: 13px;">标签1</a> <a
-                href="https://www.zhutibaba.com/demo/bokex/tag/%e6%a0%87%e7%ad%be2"
-                class="tag-cloud-link tag-link-26 tag-link-position-5" style="font-size: 13px;">标签2</a></div>
-          </div>
-        </div>
-      </div>
-    </footer>
+
+    <% include ../common/foot.html %>
+
   </div>
-  <div class="bottom-right">
-    <div class="icon-contact tooltip bottom-icon"> <span class="icon-link"> <span class="icon"><i
-            class="fa fa-phone"></i></span> <span class="text">联系我们</span> </span>
-      <div class="left-space">
-        <div class="left">
-          <div class="contact-info">
-            <h3>联系我们</h3> <strong>0898-88881688</strong>
-            <p>在线咨询: <a href="http://wpa.qq.com/msgrd?v=3&uin=3599145122&site=qq&menu=yes" target="_blank"><img
-                  src="https://www.zhutibaba.com/demo/bokex/wp-content/themes/boke-x/assets/img/qqchat.gif"
-                  alt="QQ交谈" /></a></p>
-            <p>邮箱: email@wangzhan.com</p>
-            <p>工作时间：周一至周五，9:00-17:30，节假日休息</p>
-          </div> <i></i>
-        </div>
-      </div>
-    </div>
-    <div class="icon-weixin tooltip bottom-icon"> <span class="icon-link"> <span class="icon"><i
-            class="fa fa-wechat"></i></span> <span class="text">关注微信</span> </span>
-      <div class="left-space">
-        <div class="left"> <img
-            src="https://www.zhutibaba.com/demo/bokex/wp-content/themes/boke-x/assets/img/weixin-qrcode.png"
-            alt="微信扫一扫关注我们" />
-          <h3>微信扫一扫关注我们</h3> <i></i>
-        </div>
-      </div>
-    </div>
-    <div class="icon-weibo bottom-icon"> <a href="https://weibo.com/zhutibaba" target="_blank"> <span class="icon"><i
-            class="fa fa-weibo"></i></span> <span class="text">关注微博</span> </a></div>
-    <div id="back-top" class="bottom-icon"> <a href="#top" title="返回顶部"> <span class="icon"><i
-            class="fa fa-chevron-up"></i></span> <span class="text">返回顶部</span> </a></div>
-  </div>
-  <script>
-    var _hmt = _hmt || [];
-    (function () {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?adffbbfa4c220a656094574941c145dc";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-  <script type='text/javascript'
-    src='https://www.zhutibaba.com/demo/bokex/wp-content/cache/autoptimize/11/js/autoptimize_single_5ee990907b315027da600eeeaee2e04b.js?ver=5.1.1'>
-  </script>
-  <script type="text/javascript">
-    if (jQuery) {
-      jQuery(function ($) {
-        $.ajax({
-          url: 'https://www.zhutibaba.com/demo/bokex/wp-admin/admin-ajax.php?action=xunhuweb_cron',
-          type: 'post',
-          timeout: 60 * 1000,
-          async: true,
-          cache: false
-        });
-      });
-    }
-  </script>
-  <div id="wsocial-dialog-login" style="display:none;position: fixed;z-index: 999;">
-    <div class="xh-cover"></div>
-    <div class="xh-regbox xh-window">
-      <div class="xh-title">登录</div>
-      <form class="xh-form">
-        <div class="commonlogind32edbc9055c5799c55ad970efb601e10 fields-error"></div>
-        <div class="xh-form-group"> <label class="required">用户名/邮箱/手机</label> <input type="text"
-            id="logind32edbc9055c5799c55ad970efb601e10_login_name" name="login_name" value="" placeholder="请输入用户名，邮箱或手机"
-            class="form-control " style="" /></div>
-        <script type="text/javascript">
-          (function ($) {
-            $(document).bind('on_form_logind32edbc9055c5799c55ad970efb601e10_submit', function (e, m) {
-              m.login_name = $('#logind32edbc9055c5799c55ad970efb601e10_login_name').val();
-            });
+  
+  <% include ../common/bottom-right.html %>
 
-          })(jQuery);
-        </script>
-        <div class="xh-form-group"> <label class="required">密码</label> <input type="password"
-            id="logind32edbc9055c5799c55ad970efb601e10_login_password" name="login_password" value="" placeholder=""
-            class="form-control " style="" /></div>
-        <script type="text/javascript">
-          (function ($) {
-            $(document).bind('on_form_logind32edbc9055c5799c55ad970efb601e10_submit', function (e, m) {
-              m.login_password = $('#logind32edbc9055c5799c55ad970efb601e10_login_password').val();
-            });
+  <% include ../common/common-script.html %>
 
-          })(jQuery);
-        </script>
-        <div class="xh-form-group mt10"> <button type="button" id="btn-login" onclick="window.xh_social_view.login();"
-            class="xh-btn xh-btn-primary xh-btn-block xh-btn-lg">登录</button></div>
-      </form>
-      <script type="text/javascript">
-        (function ($) {
-          if (!window.xh_social_view) {
-            window.xh_social_view = {};
-          }
-
-          window.xh_social_view.reset = function () {
-            $('.xh-alert').empty().css('display', 'none');
-          };
-
-          window.xh_social_view.error = function (msg, parent) {
-            var s = parent ? (parent + '.fields-error') : '.fields-error';
-            $(s).html('<div class="xh-alert xh-alert-danger" role="alert">' + msg + '</div>').css('display',
-              'block');
-          };
-
-          window.xh_social_view.warning = function (msg, parent) {
-            var s = parent ? (parent + '.fields-error') : '.fields-error';
-            $(s).html('<div class="xh-alert xh-alert-warning" role="alert">' + msg + '</div>').css('display',
-              'block');
-          };
-
-          window.xh_social_view.success = function (msg, parent) {
-            var s = parent ? (parent + '.fields-error') : '.fields-error';
-            $(s).html('<div class="xh-alert xh-alert-success" role="alert">' + msg + '</div>').css('display',
-              'block');
-          };
-        })(jQuery);
-      </script>
-      <script type="text/javascript">
-        (function ($) {
-          $(document).keypress(function (e) {
-            if (window.__wsocial_enable_entrl_submit) {
-              if (e.which == 13) {
-                window.xh_social_view.login();
-              }
-            }
-          });
-
-          window.xh_social_view.login = function () {
-            window.xh_social_view.reset();
-            var data = {};
-            $(document).trigger('on_form_logind32edbc9055c5799c55ad970efb601e10_submit', data);
-            $('#btn-login').attr('disabled', 'disabled').text('加载中...');
-            this.loading = true;
-
-            jQuery.ajax({
-              url: 'https://www.zhutibaba.com/demo/bokex/wp-admin/admin-ajax.php?action=xh_social_add_ons_login&tab=login&xh_social_add_ons_login=1bc2cab21e&notice_str=8597951271&hash=0056a1b129321eea008d3d9623343ae2',
-              type: 'post',
-              timeout: 60 * 1000,
-              async: true,
-              cache: false,
-              data: data,
-              dataType: 'json',
-              complete: function () {
-                $('#btn-login').removeAttr('disabled').text('登录');
-              },
-              success: function (m) {
-                if (m.errcode == 405 || m.errcode == 0) {
-                  window.xh_social_view.success('登录成功！', '.commonlogind32edbc9055c5799c55ad970efb601e10');
-
-                  if (window.top && window.top != window.self) {
-                    var $wp_dialog = jQuery('#wp-auth-check-wrap', window.top.document);
-                    if ($wp_dialog.length > 0) {
-                      $wp_dialog.hide();
-                      return;
-                    }
-                  }
-
-                  location.href = 'https://www.zhutibaba.com/demo/bokex/582.html';
-                  return;
-                }
-
-                window.xh_social_view.error(m.errmsg, '.commonlogind32edbc9055c5799c55ad970efb601e10');
-              },
-              error: function (e) {
-                window.xh_social_view.error('系统内部错误！', '.commonlogind32edbc9055c5799c55ad970efb601e10');
-                console.error(e.responseText);
-              }
-            });
-          };
-        })(jQuery);
-      </script>
-      <div class="xh-user-register xh-w"> <a href="https://www.zhutibaba.com/demo/bokex/register">注册</a>|<a
-          href="https://www.zhutibaba.com/demo/wp-login.php?action=lostpassword">忘记密码？</a></div> <a class="xh-close"
-        href="javascript:void(0);"></a>
-    </div>
-  </div>
-  <script type="text/javascript">
-    (function ($) {
-      $('#wsocial-dialog-login .xh-close,#wsocial-dialog-login .xh-cover').click(function () {
-        window.__wsocial_enable_entrl_submit = false;
-        $('#wsocial-dialog-login').hide();
-      });
-      window.wsocial_dialog_login_show = function () {
-        $('#wsocial-dialog-login').css('display', 'block');
-        window.__wsocial_enable_entrl_submit = true;
-        window.__modal_wsocial_login_resize();
-      };
-      $(function () {
-        $('.btn-wsocial-login').click(function (event) {
-          event.stopPropagation();
-          window.wsocial_dialog_login_show();
-          return false;
-        });
-      });
-      window.__modal_wsocial_login_resize = function () {
-        var $ul = $('#wsocial-dialog-login');
-        var width = window.innerWidth,
-          height = window.innerHeight;
-        if (typeof width != 'number') {
-          if (document.compatMode == 'CSS1Compat') {
-            width = document.documentElement.clientWidth;
-            height = document.documentElement.clientHeight;
-          } else {
-            width = document.body.clientWidth;
-            height = document.body.clientHeight;
-          }
-        }
-        $ul.css({
-          top: ((height - $ul.height()) / 2) + "px",
-          left: ((width - $ul.width()) / 2) + "px"
-        });
-      };
-      $(window).resize(function () {
-        window.__modal_wsocial_login_resize();
-      });
-    })(jQuery);
-  </script>
-  <script>
-    window._bd_share_config = {
-      "common": {
-        "bdSnsKey": {},
-        "bdText": "",
-        "bdMini": "2",
-        "bdMiniList": false,
-        "bdPic": "",
-        "bdStyle": "0",
-        "bdSize": "16"
-      },
-      "share": {}
-    };
-    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src =
-      '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
-  </script>
-  <script>
-    (function ($) { //create closure so we can safely use $ as alias for jQuery
-
-      $(document).ready(function () {
-
-        "use strict";
-
-        /*-----------------------------------------------------------------------------------*/
-        /*  Slick Mobile Menu
-        /*-----------------------------------------------------------------------------------*/
-        $('#primary-menu').slicknav({
-          prependTo: '#slick-mobile-menu',
-          allowParentLinks: true,
-          label: '导航'
-        });
-
-      });
-
-    })(jQuery);
-  </script>
-  <script>
-    // Get the modal
-    var modal = document.getElementById('myModal');
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal 
-    btn.onclick = function () {
-      modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-      modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-  </script>
-  <script type="text/javascript">
-    (function ($) { //create closure so we can safely use $ as alias for jQuery
-
-      $(document).ready(function () {
-
-        "use strict";
-        $(window).load(function () {
-          var stickySidebar = new StickySidebar('#secondary', {
-            topSpacing: 20,
-            bottomSpacing: 20,
-            containerSelector: '.site_container',
-            innerWrapperSelector: '.sidebar__inner'
-          });
-        });
-
-      });
-
-
-    })(jQuery);
-  </script>
-  <script type="text/javascript" defer
-    src="https://www.zhutibaba.com/demo/bokex/wp-content/cache/autoptimize/11/js/autoptimize_cc63896c73ddeeb3a90b5ad7194d602e.js">
-  </script>
 </body>
 
 </html>

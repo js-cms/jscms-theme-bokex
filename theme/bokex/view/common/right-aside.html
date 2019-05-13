@@ -49,5 +49,47 @@
         <% }) %>
       </ul>
     </div>
+
+    <% if (RENDER_PARAM.pageType==='article') { %>
+    <div id="post-nav" class="clear">
+      <% if (RENDER_PARAM.prevArticle) { %>
+      <div class="post-previous">
+        <a class="previous" href="/<%-RENDER_PARAM.prevArticle.numberId%>.html">
+          <span>
+            <i class="fa fa-angle-left"></i> 上一篇
+          </span>
+          <div class="thumbnail-wrap thumbnail-right-aside-post">
+            <img width="300" height="150" src="<%-RENDER_PARAM.prevArticle.poster%>" class="attachment-boke_x_widget_thumb size-boke_x_widget_thumb wp-post-image" alt="<%-RENDER_PARAM.prevArticle.title%>" />
+          </div>
+          <h4>
+            <%-RENDER_PARAM.prevArticle.title%>
+          </h4>
+          <small>
+            <%- helper.toDate(RENDER_PARAM.prevArticle.createTime, 4) %>
+          </small>
+          <div class="gradient"></div>
+        </a>
+      </div>
+      <% } %>
+      <% if (RENDER_PARAM.nextArticle) { %>
+      <div class="post-next">
+        <a class="next" href="/<%-RENDER_PARAM.nextArticle.numberId%>.html">
+          <span> 下一篇 <i class="fa fa-angle-right"></i>
+          </span>
+          <div class="thumbnail-wrap thumbnail-right-aside-post">
+            <img width="300" height="150" src="<%-RENDER_PARAM.nextArticle.poster%>" class="attachment-boke_x_widget_thumb size-boke_x_widget_thumb wp-post-image" alt="<%-RENDER_PARAM.nextArticle.title%>" />
+          </div>
+          <h4>
+            <%-RENDER_PARAM.nextArticle.title%>
+          </h4>
+          <small>
+            <%- helper.toDate(RENDER_PARAM.nextArticle.createTime, 4) %>
+          </small>
+          <div class="gradient"></div>
+        </a>
+      </div>
+      <% } %>
+    </div>
+    <% } %>
   </div>
 </aside>

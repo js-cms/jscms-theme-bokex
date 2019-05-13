@@ -1,0 +1,11 @@
+@media screen and (min-width: 1160px) {
+  .thumbnail-right-aside-post img
+  {
+    object-fit: cover;
+  }
+
+  .thumbnail-right-aside-post img {
+    width: 300px !important;
+    height: 150px !important;
+  }
+}
