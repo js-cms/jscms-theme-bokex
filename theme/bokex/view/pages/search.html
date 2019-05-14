@@ -42,10 +42,9 @@
                   <span class="entry-date"> <%-helper.toDate(article.createTime, 3)%> </span>
                   <span class="entry-like">
                     <span class="sl-wrapper">
-                      <a href="javascript:viod(0);" class="sl-button sl-button-<%-article.numberId%>"
-                        data-number-id="<%-article.numberId%>">
+                      <a href="javascript:viod(0);" class="like-btn" data-number-id="<%-article.numberId%>" title="点赞这篇文章">
                         <span class="sl-count">
-                          <i class="fa fa-thumbs-o-up"></i><%-article.likeTotal%><em>赞</em>
+                          <i class="fa fa-thumbs-o-up"></i> <span id="likeTotal"><%-article.likeTotal%></span> <em>赞</em>
                         </span>
                       </a>
                       <span class="sl-loader"></span>

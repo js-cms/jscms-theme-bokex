@@ -51,9 +51,11 @@
                 <img width="780" height="460" src="<%-RENDER_PARAM.article.poster%>" class="attachment-boke_x_single_thumb size-boke_x_single_thumb wp-post-image" alt="<%-RENDER_PARAM.article.title%>" />
                 <p><%-RENDER_PARAM.article.content%></p>
               </div>
+              <% if (WEB_CONFIG.site.articleStatement !== '') {%>
               <div class="single-credit">
                 <%-WEB_CONFIG.site.articleStatement%>
               </div>
+              <% } %>
               <div class="entry-footer clear">
                 <div id="myModal" class="modal">
                   <div class="modal-content clear">
@@ -66,101 +68,79 @@
                         alt="微信扫一扫打赏" /> 支付宝扫一扫打赏</div> <span class="close">&times;</span>
                   </div>
                 </div>
-                <div class="entry-footer-right"> <span class="entry-sponsor"> <span id="myBtn" href="#"><i
-                        class="fa fa-jpy"></i> 打赏</span> </span> <span class="entry-like"> <span class="sl-wrapper"><a
-                        href="https://www.zhutibaba.com/demo/bokex/wp-admin/admin-ajax.php?action=process_simple_like&post_id=582&nonce=3e1455af55&is_comment=0&disabled=true"
-                        class="sl-button sl-button-582" data-nonce="3e1455af55" data-post-id="582" data-iscomment="0"
-                        title="点赞这篇文章"><span class="sl-count"><i class="fa fa-thumbs-o-up"></i>
-                          49<em>赞</em></span></a><span class="sl-loader"></span></span> </span></div>
+                <div class="entry-footer-right">
+                  <span class="entry-sponsor">
+                    <span id="myBtn" href="#">
+                      <i class="fa fa-jpy"></i> 打赏
+                    </span>
+                  </span>
+                  <span class="entry-like">
+                    <span class="sl-wrapper">
+                      <a href="javascript:void(0);" class="like-btn" data-number-id="<%-RENDER_PARAM.article.numberId%>" title="点赞这篇文章">
+                        <span class="sl-count"><i class="fa fa-thumbs-o-up"></i>
+                          <span id="likeTotal"> <%-RENDER_PARAM.article.likeTotal%> </span>
+                          <em>赞</em>
+                        </span>
+                      </a>
+                      <span class="sl-loader"></span>
+                    </span>
+                  </span>
+                </div>
               </div>
               <div class="entry-bottom clear">
-                <div class="entry-tags"> <span class="tag-links"><span>标签:</span><a
-                      href="https://www.zhutibaba.com/demo/bokex/tag/%e6%a0%87%e7%ad%be%e4%b8%80" rel="tag">标签一</a> <a
-                      href="https://www.zhutibaba.com/demo/bokex/tag/%e6%a0%87%e7%ad%be%e4%b8%89" rel="tag">标签三</a> <a
-                      href="https://www.zhutibaba.com/demo/bokex/tag/%e6%a0%87%e7%ad%be%e4%ba%8c"
-                      rel="tag">标签二</a></span></div> <span class="custom-share"> <span class="bdsharebuttonbox"> <a
-                      href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a> <a href="#" class="bds_weixin"
-                      data-cmd="weixin" title="分享到微信"></a> <a href="#" class="bds_sqq" data-cmd="sqq"
-                      title="分享给QQ好友"></a> <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a> </span>
+                <div class="entry-tags">
+                  <span class="tag-links">
+                    <span>标签:</span>
+                    <% RENDER_PARAM.article.keywords.forEach(function(key) { %>
+                    <a href="/tags/<%-encodeURIComponent(key)%>.html" rel="tag"><%-key%></a>
+                    <% }) %>
+                  </span>
+                </div>
+                <span class="custom-share">
+                  <span class="bdsharebuttonbox">
+                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a> <a href="#" class="bds_sqq" data-cmd="sqq"
+                      title="分享给QQ好友"></a>
+                    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a> </span>
                 </span>
               </div>
             </article>
-            <div class="author-box clear"> <a href="https://www.zhutibaba.com/demo/bokex/author/zhutibaba"><img alt=''
-                  src='https://secure.gravatar.com/avatar/4c2ed72c6be86742f05e9750110d5731?s=120&#038;d=mm&#038;r=g'
-                  srcset='https://secure.gravatar.com/avatar/4c2ed72c6be86742f05e9750110d5731?s=240&#038;d=mm&#038;r=g 2x'
-                  class='avatar avatar-120 photo' height='120' width='120' /></a>
+            <% if ( RENDER_PARAM.article.userId.about ) { %>
+            <div class="author-box clear">
+              <a href="/author/<%-RENDER_PARAM.article.userId.nickname%>.html">
+                <img alt="<%-RENDER_PARAM.article.userId.nickname%>" src="<%-RENDER_PARAM.article.userId.avatar%>"
+                    class="avatar avatar-120 photo" height="120" width="120"></a>
               <div class="author-meta">
-                <h4 class="author-name">作者: <span class="hover-underline"><a
-                      href="https://www.zhutibaba.com/demo/bokex/author/zhutibaba">网站小编</a></span></h4>
+                <h4 class="author-name">关于作者: 
+                  <span class="hover-underline">
+                    <a href="/author/<%-RENDER_PARAM.article.userId.nickname%>.html"><%-RENDER_PARAM.article.userId.nickname%></a>
+                  </span>
+                </h4>
                 <div class="author-desc">
-                  主题巴巴团队从2009年开始专注于WordPress主题设计开发，致力于为更多用户能轻松使用WordPress打造出更漂亮、更好用、更专业的网站。已累计开发近100款主题，全球付费客户超过3万人。主题巴巴，是您可以长期信赖的伙伴。
+                  <%-RENDER_PARAM.article.userId.about%>
                 </div>
               </div>
             </div>
-            <div id="happythemes-ad-6" class="single-bottom-ad widget_ad ad-widget">
-              <div class="adwidget"><a href="https://www.zhutibaba.com/themes/bokex" target="_blank"><img
-                    src="https://www.zhutibaba.com/demo/zazhi1/wp-content/themes/zazhi-1/assets/img/content-ad.png"
-                    alt="广告位"></a></div>
-            </div>
+            <% } %>
+
             <div class="related-content">
               <h3 class="section-title">相关文章</h3>
               <ul class="clear">
-                <li class="hentry ht_grid_1_3"> <a class="thumbnail-link"
-                    href="https://www.zhutibaba.com/demo/bokex/176.html">
-                    <div class="thumbnail-wrap"> <img width="243" height="156"
-                        src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/07/g8-243x156.jpg"
-                        class="attachment-boke_x_list_thumb size-boke_x_list_thumb wp-post-image" alt="" /></div>
+                <% RENDER_PARAM.relate.forEach(function(article, index) { %>
+                <li class="hentry ht_grid_1_3">
+                  <a class="thumbnail-link" href="/<%-article.numberId%>.html">
+                    <div class="thumbnail-wrap thumbnail-related-article">
+                      <img width="243" height="156" src="<%-article.poster%>"
+                        class="attachment-boke_x_list_thumb size-boke_x_list_thumb wp-post-image"
+                        alt="<%-article.title%>">
+                    </div>
                   </a>
-                  <h2 class="entry-title"><a href="https://www.zhutibaba.com/demo/bokex/176.html">呼伦贝尔:
-                      你不可错过的辽阔草原和兴安秋色!</a></h2>
+                  <h2 class="entry-title"><a href="/<%-article.numberId%>.html"><%-article.title%></a></h2>
                 </li>
-                <li class="hentry ht_grid_1_3"> <a class="thumbnail-link"
-                    href="https://www.zhutibaba.com/demo/bokex/147.html">
-                    <div class="thumbnail-wrap"> <img width="243" height="156"
-                        src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/07/36-243x156.jpeg"
-                        class="attachment-boke_x_list_thumb size-boke_x_list_thumb wp-post-image" alt="" /></div>
-                  </a>
-                  <h2 class="entry-title"><a href="https://www.zhutibaba.com/demo/bokex/147.html">最全汇总：iPhone X
-                      Plus的传闻都在这儿了</a></h2>
-                </li>
-                <li class="hentry ht_grid_1_3"> <a class="thumbnail-link"
-                    href="https://www.zhutibaba.com/demo/bokex/294.html">
-                    <div class="thumbnail-wrap"> <img width="243" height="156"
-                        src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/07/g17-243x156.jpg"
-                        class="attachment-boke_x_list_thumb size-boke_x_list_thumb wp-post-image" alt="" /></div>
-                  </a>
-                  <h2 class="entry-title"><a
-                      href="https://www.zhutibaba.com/demo/bokex/294.html">超美的三亚,5天4晚全五星酒店高大上自由行</a></h2>
-                </li>
-                <li class="hentry ht_grid_1_3"> <a class="thumbnail-link"
-                    href="https://www.zhutibaba.com/demo/bokex/49.html">
-                    <div class="thumbnail-wrap"> <img width="243" height="156"
-                        src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/07/facebook-app-image-243x156.jpg"
-                        class="attachment-boke_x_list_thumb size-boke_x_list_thumb wp-post-image" alt="" /></div>
-                  </a>
-                  <h2 class="entry-title"><a href="https://www.zhutibaba.com/demo/bokex/49.html">Facebook联合创始人: 对富人征税50%
-                      给穷人每月500</a></h2>
-                </li>
-                <li class="hentry ht_grid_1_3"> <a class="thumbnail-link"
-                    href="https://www.zhutibaba.com/demo/bokex/55.html">
-                    <div class="thumbnail-wrap"> <img width="243" height="156"
-                        src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/07/13-243x156.jpg"
-                        class="attachment-boke_x_list_thumb size-boke_x_list_thumb wp-post-image" alt="" /></div>
-                  </a>
-                  <h2 class="entry-title"><a href="https://www.zhutibaba.com/demo/bokex/55.html">小米公布配售结果: 获轻微超额认购
-                      价格定在每股17港元</a></h2>
-                </li>
-                <li class="hentry ht_grid_1_3"> <a class="thumbnail-link"
-                    href="https://www.zhutibaba.com/demo/bokex/61.html">
-                    <div class="thumbnail-wrap"> <img width="243" height="156"
-                        src="https://www.zhutibaba.com/demo/bokex/wp-content/uploads/sites/11/2018/07/15-243x156.jpg"
-                        class="attachment-boke_x_list_thumb size-boke_x_list_thumb wp-post-image" alt="" /></div>
-                  </a>
-                  <h2 class="entry-title"><a href="https://www.zhutibaba.com/demo/bokex/61.html">电视机改革印记：从“凸面”到“凹面”</a>
-                  </h2>
-                </li>
+                <% }) %>
               </ul>
             </div>
+
             <div id="comments" class="comments-area">
               <div id="respond" class="comment-respond">
                 <h3 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow"
@@ -245,8 +225,9 @@
         </div>
       </div>
       
+      <% if (RENDER_PARAM.widthType !== 'full') { %>
       <% include ../common/right-aside.html %>
-
+      <% } %>
     </div>
 
     <% include ../common/foot.html %>

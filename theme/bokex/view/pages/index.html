@@ -50,7 +50,7 @@
               <h2>专题列表</h2>
               <div class="desc">四个本站精选专题</div>
               <div class="section-more">
-                <a href="/categories/mormal.html">
+                <a href="/categories/normal.html">
                   查看所有专题<i lass="fa fa-angle-right"></i>
                 </a>
               </div>
@@ -113,8 +113,8 @@
                   <span class="entry-date"> <%-helper.toDate(article.createTime, 3)%> </span>
                   <span class="entry-like">
                     <span class="sl-wrapper">
-                      <a href="" class="sl-button sl-button" title="点赞这篇文章">
-                        <span class="sl-count"><i class="fa fa-thumbs-o-up"></i> <%-article.likeTotal%><em>赞</em></span>
+                      <a href="javascript:void(0);" class="like-btn" data-number-id="<%-article.numberId%>" title="点赞这篇文章">
+                        <span class="sl-count"><i class="fa fa-thumbs-o-up"></i> <span id="likeTotal"><%-article.likeTotal%></span><em>赞</em></span>
                       </a>
                       <span class="sl-loader"></span>
                     </span>
