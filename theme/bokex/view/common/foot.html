@@ -6,7 +6,8 @@
       <div class="footer-partners clear">
         <div class="partner-title clear"> <strong>合作伙伴</strong> <span class="partner-desc">logo友情链接</span> <span
             class="partner-link"> <a href="https://www.zhutibaba.com/contact" target="_blank"> 联系我们 <i
-                class="fa fa-angle-right"></i> </a></span></div>
+                class="fa fa-angle-right"></i> </a></span>
+        </div>
         <div class="partner-wrap">
           <% WEB_CONFIG.links.filter(i => i.logo).forEach(function(link, index) { %>
           <div id="media_image-<%-index%>" class="partner-image widget_media_image" title="<%-link.name%>">
@@ -62,9 +63,11 @@
           <button type="submit" class="search-submit">搜索</button>
         </form>
         <div class="popular-search"> 热搜: 
-          <a href="/s?s=%e6%a0%87%e7%ad%be%e4%b8%80" class="tag-cloud-link" style="font-size: 13px;">
-            标签一
+          <% RENDER_DATA.hotSearchKeywords.splice(0, 5).forEach(function(item, index) { %>
+          <a href="/s?s=<%-encodeURIComponent(item.keyword)%>" class="tag-cloud-link" style="font-size: 13px;">
+            <%-item.keyword%>
           </a>
+          <% }) %>
         </div>
       </div>
     </div>

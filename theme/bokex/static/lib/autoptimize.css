@@ -8835,7 +8835,10 @@ h6 {
   overflow: hidden;
   position: relative;
   padding-left: 14px;
-  padding-right: 50px
+  padding-right: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .mini-page ul li:before {
