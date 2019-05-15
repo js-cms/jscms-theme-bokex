@@ -1,8 +1,8 @@
 @media screen and (min-width: 1160px) {
-  .thumbnail-right-aside-post img
+  .thumbnail-right-aside-post img,
   .thumbnail-related-article img
   {
-    object-fit: cover;
+    object-fit: cover !important;
   }
 
   .thumbnail-right-aside-post img {
