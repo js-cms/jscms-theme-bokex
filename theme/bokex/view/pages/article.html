@@ -69,22 +69,15 @@
                   </div>
                 </div>
                 <div class="entry-footer-right">
-                  <span class="entry-sponsor">
-                    <span id="myBtn" href="#">
-                      <i class="fa fa-jpy"></i> 打赏
-                    </span>
-                  </span>
-                  <span class="entry-like">
-                    <span class="sl-wrapper">
-                      <a href="javascript:void(0);" class="like-btn" data-number-id="<%-RENDER_PARAM.article.numberId%>" title="点赞这篇文章">
-                        <span class="sl-count"><i class="fa fa-thumbs-o-up"></i>
-                          <span id="likeTotal"> <%-RENDER_PARAM.article.likeTotal%> </span>
-                          <em>赞</em>
-                        </span>
-                      </a>
-                      <span class="sl-loader"></span>
-                    </span>
-                  </span>
+                  <% if (RENDER_PARAM.article.isWxpub) { %>
+                  <button class="btn-primary" onclick="jscmssdk.dialogQrcode.show('<%-RENDER_PARAM.article.userId.qrWx%>', '扫一扫关注我的微信公众号')"><i class="fa fa-weixin"></i> 微信公众号</button>
+                  <% } %>
+                  <% if (RENDER_PARAM.article.isReward) { %>
+                  <button class="btn-primary"><i class="fa fa-jpy"></i> 打赏</button>
+                  <% } %>
+                  <button class="btn-primary like-btn" data-number-id="<%-RENDER_PARAM.article.numberId%>" title="点赞这篇文章">
+                    <i class="fa fa-thumbs-o-up"></i> <span id="likeTotal"> <%-RENDER_PARAM.article.likeTotal%> </span> 赞
+                  </button>
                 </div>
               </div>
               <div class="entry-bottom clear">
@@ -99,13 +92,14 @@
                 <span class="custom-share">
                   <span class="bdsharebuttonbox">
                     <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a> <a href="#" class="bds_sqq" data-cmd="sqq"
-                      title="分享给QQ好友"></a>
-                    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a> </span>
+                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给QQ好友"></a>
+                    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                  </span>
                 </span>
               </div>
             </article>
-            <% if ( RENDER_PARAM.article.userId.about ) { %>
+            <% if (RENDER_PARAM.article.isAbout && RENDER_PARAM.article.userId.about) { %>
             <div class="author-box clear">
               <a href="/author/<%-RENDER_PARAM.article.userId.nickname%>.html">
                 <img alt="<%-RENDER_PARAM.article.userId.nickname%>" src="<%-RENDER_PARAM.article.userId.avatar%>"

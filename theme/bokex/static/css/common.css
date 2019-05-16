@@ -9,3 +9,21 @@
 .footer-partners .partners-item img:hover{
   transform: scale(1.1);
 }
+
+.btn-primary {
+  border: 1px solid #037ef3;
+  color: #037ef3;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+  background-color: #fff;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #037ef3;
+  color: #fff;
+}

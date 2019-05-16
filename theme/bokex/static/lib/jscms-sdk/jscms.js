@@ -1,5 +1,7 @@
 ;
 (function (window) {
+  /** 定义变量 */
+  var vueComponents = {};
 
   /**
    * 动态加载css文件
@@ -137,24 +139,114 @@
   }
 
   /**
+   * 动态加载style标签
+   */
+  function loadStyle(styleString, id) {
+    var style = document.createElement("style");
+    style.type = "text/css";
+    if(id) style.id = id;
+    try {
+　　  style.appendChild(document.createTextNode(styleString));
+    } catch(ex) {
+　　  style.styleSheet.cssText = styleString; //针对IE
+    }
+    var head = document.getElementsByTagName("head")[0];
+    head.appendChild(style);
+  }
+
+  /**
+   * 动态加载vue组件
+   */
+  function loadVueComponent(url, callback) {
+    jQuery.ajax({
+      url: url,
+      type: 'get',
+      dataType: 'text',
+      success: function(res) {
+        var templateReg = /<template>([\d\D]*)?<\/template>/gmi;
+        var scriptReg = /<script>([\d\D]*)?<\/script>/gmi;
+        var styleReg = /<style>([\d\D]*)?<\/style>/gmi;
+        var template = templateReg.exec(res)[1];
+        var script = scriptReg.exec(res)[1];
+        var style = styleReg.exec(res)[1];
+        var obj = eval('('+script.replace('export default {', 'function () { return {')+'})()');
+        var component = Object.assign({
+          style: style,
+          template: template
+        }, obj);
+        console.log(component);
+        vueComponents[component.name] = component;
+        callback();
+      }
+    });
+  }
+
+  /**
+   * 初始化vue
+   */
+  function initVue(options) {
+    var appRoot = document.createElement('div');
+    var id = Math.random().toString(36).substr(2);
+    var styleId = 'style_' + id;
+    var vueId = 'vueApp_' + id;
+    loadStyle(options.rootApp.style, styleId);
+    appRoot.id = vueId;
+    document.body.appendChild(appRoot);
+    var vueApp = new Vue(
+      Object.assign({
+        el: '#' + appRoot.id
+      }, options.rootApp)
+    );
+    return vueApp;
+  }
+
+  /**
    * 动态加载类库文件
    */
   function requireArray(array, callback) {
+    var length = array.length;
     array.forEach(function (url) {
-      loadJs(url, function (params) {
-        
-      });
+      var temp = url.split('.');
+      var ext = temp[temp.length - 1];
+      switch (ext) {
+        case 'css':
+          loadCss({
+            url: url,
+            callback: function (params) {
+              length--;if (length <= 0) callback();
+            }
+          })
+          break;
+        case 'vue':
+          loadVueComponent(url, function (params) {
+            length--;if (length <= 0) callback();
+          });
+          break;
+        default:
+          loadJs(url, function (params) {
+            length--;if (length <= 0) callback();
+          });
+          break;
+      }
     });
   }
 
   requireArray([
     'https://cdn.jsdelivr.net/npm/heyui/themes/index.css',
     'https://cdn.jsdelivr.net/npm/vue',
-    'https://cdn.jsdelivr.net/npm/heyui'
+    'https://cdn.jsdelivr.net/npm/heyui',
+    '/theme-static/bokex/static/lib/jscms-sdk/component/qrcode.vue'
   ], main);
 
   function main() {
-
+    var dialogQrcode = initVue({
+      rootApp: vueComponents.Qrcode
+    });
+    var jscmssdk = {
+      dialogQrcode: dialogQrcode
+    }
+    console.log(jscmssdk);
+    window.jscmssdk = jscmssdk;
   }
 
 })(window);
