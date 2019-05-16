@@ -15,7 +15,7 @@
             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1 <% if (RENDER_PARAM.pageType === 'home') { %>current-menu-item<% } %>">
             <a href="/" aria-current="page">首页</a>
           </li>
-          <% WEB_CONFIG.menus.forEach(function(menu, index) { %>
+          <% WEB_CONFIG.menus.top.forEach(function(menu, index) { %>
           <% if (menu.isValid) { %>
           <li id="menu-item-<%-menu.alias%>"
             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-<%-menu.alias%> <% if (menu.hasChild) { %>menu-item-has-children<% } %>">

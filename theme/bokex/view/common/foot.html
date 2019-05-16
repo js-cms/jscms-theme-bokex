@@ -47,12 +47,11 @@
         </div>
         <div class="menu-posts-container">
           <ul id="footer-menu" class="footer-nav">
-            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-714">
-              <a href="https://www.zhutibaba.com/demo/bokex/zhuanti-full">全宽专题</a>
+            <% WEB_CONFIG.menus.bottom.forEach(function(menu, index) { %>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+              <a href="<%-menu.link%>"><%-menu.name%></a>
             </li>
-            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-713">
-              <a target="_blank" href="/latest/100.html">最新100篇</a>
-            </li>
+            <% }) %>
           </ul>
         </div>
         <div class="site-info"><%- WEB_CONFIG.site.footHTML %></div>
