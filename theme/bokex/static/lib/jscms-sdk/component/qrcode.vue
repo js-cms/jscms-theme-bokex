@@ -1,9 +1,12 @@
 <template>
   <div class="vue-qrcode">
     <Modal v-model="opened" className="">
-      <div style="padding: 10px; text-align: center;">{{text}}</div>
-      <div class="vue-qrcode-warp">
-        <img class="vue-qrcode-image" v-show="imageUrl" :src="imageUrl" :alt="text">
+      <div style="padding: 10px; text-align: center;">{{title}}</div>
+      <div class="vue-qrcode-warp" :style="warpStyle">
+        <div class="item" v-for="(item, index) in images" :key="index">
+          <div><img class="vue-qrcode-image" v-show="item.url" :src="item.url" :alt="item.desc"></div>
+          <span v-show="item.desc">{{item.desc}}</span>
+        </div>
       </div>
     </Modal>
   </div>
@@ -14,17 +17,21 @@ export default {
   name: 'Qrcode',
   data: function() {
     return {
-      opened: false,
-      imageUrl: '',
-      text: '扫一扫'
+      baseWidth: 240,
+      warpStyle: {
+        width: '230px',
+      },
+      title: '扫一扫',
+      images: [],
+      opened: false
     }
   },
-  mounted: function() {
-  },
   methods: {
-    show: function(imageUrl, text) {
-      this.imageUrl = imageUrl;
-      this.text = text;
+    show: function(options) {
+      this.title = options.title;
+      this.images = options.images;
+      this.warpStyle.width = (options.images.length * this.baseWidth) + 'px';
+      console.log(this.warpStyle);
       this.opened = true;
     }
   }
@@ -41,5 +48,10 @@ img.vue-qrcode-image {
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  min-width: 350px;
+}
+
+.vue-qrcode-warp .item {
+  display: inline-block;
 }
 </style>

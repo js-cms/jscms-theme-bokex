@@ -57,26 +57,15 @@
               </div>
               <% } %>
               <div class="entry-footer clear">
-                <div id="myModal" class="modal">
-                  <div class="modal-content clear">
-                    <h3>给这篇文章的作者打赏</h3>
-                    <div class="ht_grid_1_2_custom"> <img
-                        src="https://www.zhutibaba.com/demo/bokex/wp-content/themes/boke-x/assets/img/weixin-code.png"
-                        alt="微信扫一扫打赏" /> 微信扫一扫打赏</div>
-                    <div class="ht_grid_1_2_custom"> <img
-                        src="https://www.zhutibaba.com/demo/bokex/wp-content/themes/boke-x/assets/img/alipay-code.png"
-                        alt="微信扫一扫打赏" /> 支付宝扫一扫打赏</div> <span class="close">&times;</span>
-                  </div>
-                </div>
                 <div class="entry-footer-right">
                   <% if (RENDER_PARAM.article.isWxpub) { %>
-                  <button class="btn-primary" onclick="jscmssdk.dialogQrcode.show('<%-RENDER_PARAM.article.userId.qrWx%>', '扫一扫关注我的微信公众号')"><i class="fa fa-weixin"></i> 微信公众号</button>
+                  <button class="btn-primary btn-show-wxpub"><i class="fa fa-weixin"></i>&nbsp;微信公号</button>
                   <% } %>
                   <% if (RENDER_PARAM.article.isReward) { %>
-                  <button class="btn-primary"><i class="fa fa-jpy"></i> 打赏</button>
+                  <button class="btn-primary btn-show-reward"><i class="fa fa-jpy"></i>&nbsp;打赏作者</button>
                   <% } %>
-                  <button class="btn-primary like-btn" data-number-id="<%-RENDER_PARAM.article.numberId%>" title="点赞这篇文章">
-                    <i class="fa fa-thumbs-o-up"></i> <span id="likeTotal"> <%-RENDER_PARAM.article.likeTotal%> </span> 赞
+                  <button id="" class="btn-primary btn-like" data-number-id="<%-RENDER_PARAM.article.numberId%>" title="点赞文章">
+                    <i class="fa fa-thumbs-o-up"></i>&nbsp;<span id="likeTotal"><%-RENDER_PARAM.article.likeTotal%></span>&nbsp;点赞文章
                   </button>
                 </div>
               </div>
@@ -229,6 +218,22 @@
   </div>
   
   <% include ../common/bottom-right.html %>
+
+  <script>
+    (function(window) {
+      var __JSCMS_CONSTANT__ = window.__JSCMS_CONSTANT__ = {
+        article: {
+          user: {
+            "qrWx": <%- JSON.stringify(RENDER_PARAM.article.userId.qrWx) %>,
+            "qrWxpay": <%- JSON.stringify(RENDER_PARAM.article.userId.qrWxpay) %>,
+            "qrWxpub": <%- JSON.stringify(RENDER_PARAM.article.userId.qrWxpub) %>,
+            "qrAlipay": <%- JSON.stringify(RENDER_PARAM.article.userId.qrAlipay) %>,
+            "qrUnionpay": <%- JSON.stringify(RENDER_PARAM.article.userId.qrUnionpay) %>
+          }
+        }
+      };
+    })(window);
+  </script>
 
   <% include ../common/common-script.html %>
 

@@ -23,7 +23,30 @@
   padding-right: 10px;
 }
 
+.btn-primary.liked {
+  background-color: gray;
+  color: #fff;
+  border-color: gray;
+}
+
+.btn-primary.liked:hover {
+  background-color: gray;
+  color: #fff;
+}
+
 .btn-primary:hover {
   background-color: #037ef3;
   color: #fff;
+}
+
+#searchform input {
+  height: 38px;
+  line-height: 38px;
+  padding: 0 10px;
+  font-size: 15px;
+  font-weight: 400;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  outline: none;
+  color: #333;
 }

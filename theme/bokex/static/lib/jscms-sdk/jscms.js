@@ -144,7 +144,7 @@
   function loadStyle(styleString, id) {
     var style = document.createElement("style");
     style.type = "text/css";
-    if(id) style.id = id;
+    if (id) style.id = id;
     try {
 　　  style.appendChild(document.createTextNode(styleString));
     } catch(ex) {
@@ -174,7 +174,6 @@
           style: style,
           template: template
         }, obj);
-        console.log(component);
         vueComponents[component.name] = component;
         callback();
       }
