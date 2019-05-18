@@ -184,7 +184,7 @@
    * 初始化vue
    */
   function initVue(options) {
-    var appRoot = document.createElement('div');
+    var el = options.el;
     var id = Math.random().toString(36).substr(2);
     var styleId = 'style_' + id;
     var vueId = 'vueApp_' + id;
@@ -234,7 +234,8 @@
     'https://cdn.jsdelivr.net/npm/heyui/themes/index.css',
     'https://cdn.jsdelivr.net/npm/vue',
     'https://cdn.jsdelivr.net/npm/heyui',
-    '/theme-static/bokex/static/lib/jscms-sdk/component/qrcode.vue'
+    '/theme-static/bokex/static/lib/jscms-sdk/component/qrcode.vue',
+    '/theme-static/bokex/static/lib/jscms-sdk/component/comment.vue'
   ], main);
 
   function main() {

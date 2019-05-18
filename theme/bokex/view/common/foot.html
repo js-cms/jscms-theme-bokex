@@ -3,6 +3,7 @@
   <% if (RENDER_PARAM.pageType==='home') { %>
   <div class="container">
     <div class="footer-content">
+      <% if (WEB_CONFIG.links.filter(i => i.logo).length) { %>
       <div class="footer-partners clear">
         <div class="partner-title clear"> <strong>合作伙伴</strong> <span class="partner-desc">logo友情链接</span> <span
             class="partner-link"> <a href="https://www.zhutibaba.com/contact" target="_blank"> 联系我们 <i
@@ -18,7 +19,9 @@
           <% }) %>
         </div>
       </div>
+      <% } %>
       <div class="clear"></div>
+      <% if (WEB_CONFIG.links.filter(i => !i.logo).length) { %>
       <div class="friend clear">
         <div class="friend-title clear">
           <h3>友情链接</h3> <span class="friend-desc">文字友情链接</span> <span class="friend-link"> <a
@@ -36,6 +39,7 @@
           </ul>
         </div>
       </div>
+      <% } %>
     </div>
   </div>
   <% } %>
