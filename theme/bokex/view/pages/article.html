@@ -4,10 +4,12 @@
 <head>
   <% include ../common/head.html %>
   <% if (RENDER_PARAM.prevArticle) { %>
-  <link rel='prev' title='<%-RENDER_PARAM.prevArticle.title%>' href='h<%-WEB_CONFIG.origin%>/<%-RENDER_PARAM.prevArticle.numberId%>.html' />
+  <link rel='prev' title='<%-RENDER_PARAM.prevArticle.title%>'
+    href='h<%-WEB_CONFIG.origin%>/<%-RENDER_PARAM.prevArticle.numberId%>.html' />
   <% } %>
   <% if (RENDER_PARAM.nextArticle) { %>
-  <link rel='prev' title='<%-RENDER_PARAM.nextArticle.title%>' href='<%-WEB_CONFIG.origin%>/<%-RENDER_PARAM.nextArticle.numberId%>.html' />
+  <link rel='prev' title='<%-RENDER_PARAM.nextArticle.title%>'
+    href='<%-WEB_CONFIG.origin%>/<%-RENDER_PARAM.nextArticle.numberId%>.html' />
   <% } %>
   <link rel="canonical" href="<%-WEB_CONFIG.origin%>/<%-RENDER_PARAM.article.numberId%>.html" />
   <link rel='shortlink' href='<%-WEB_CONFIG.origin%>/<%-RENDER_PARAM.article.numberId%>.html' />
@@ -16,39 +18,48 @@
 
 <body class="post-template-default single single-post postid-582 single-format-standard wp-custom-logo">
   <div id="page" class="site">
-    
+
     <% include ../common/top-menu.html %>
 
     <div id="content" class="site-content site_container container clear">
       <div id="primary" class="content-area">
         <div class="content-wrapper">
           <main id="main" class="site-main">
-            <article id="post-<%-RENDER_PARAM.article.numberId%>" class="post-<%-RENDER_PARAM.article.numberId%> post type-post status-publish format-standard has-post-thumbnail hentry category-tech">
-              <div class="single-breadcrumbs"> <span>您的位置</span> <i class="fa fa-angle-right"></i> <a
-                  href="/">首页</a> <i class="fa fa-angle-right"></i> <a
-                  href="/<%-RENDER_PARAM.article.categoryId.alias%>.html"><%-RENDER_PARAM.article.categoryId.name%></a></div>
+            <article id="post-<%-RENDER_PARAM.article.numberId%>"
+              class="post-<%-RENDER_PARAM.article.numberId%> post type-post status-publish format-standard has-post-thumbnail hentry category-tech">
+              <div class="single-breadcrumbs"> <span>您的位置</span> <i class="fa fa-angle-right"></i> <a href="/">首页</a> <i
+                  class="fa fa-angle-right"></i> <a
+                  href="/<%-RENDER_PARAM.article.categoryId.alias%>.html"><%-RENDER_PARAM.article.categoryId.name%></a>
+              </div>
               <header class="entry-header">
                 <h1 class="entry-title"><%-RENDER_PARAM.article.title%></h1>
-                <div class="entry-meta"> 
-                  <span class="entry-author"> 作者: <a href="/author/<%-RENDER_PARAM.article.userId.nickname%>.html"> <%-RENDER_PARAM.article.userId.nickname%> </a> </span> 
+                <div class="entry-meta">
+                  <span class="entry-author"> 作者: <a href="/author/<%-RENDER_PARAM.article.userId.nickname%>.html">
+                      <%-RENDER_PARAM.article.userId.nickname%> </a> </span>
                   <% if (RENDER_PARAM.article.isSource) { %>
-                  <span class="entry-source"> 来源: <a href="<%-RENDER_PARAM.article.sourceUrl ? RENDER_PARAM.article.sourceUrl : 'javascript:void(0);'%>" target="_blank"><%-RENDER_PARAM.article.sourceName%> </span> 
+                  <span class="entry-source"> 来源: <a
+                      href="<%-RENDER_PARAM.article.sourceUrl ? RENDER_PARAM.article.sourceUrl : 'javascript:void(0);'%>"
+                      target="_blank"><%-RENDER_PARAM.article.sourceName%> </span>
                   <% } %>
                   <span class="entry-date"> 发布: <%-helper.toDate(RENDER_PARAM.article.createTime, 3)%> </span> <span
-                    class="entry-views"><i class="flaticon-eye"></i> <%-RENDER_PARAM.article.visTotal%><em>阅读</em></span> <span
-                    class="entry-comment"><a href="/<%-RENDER_PARAM.article.numberId%>.html#comments"
-                      class="comments-link"><i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>
-                      <%-RENDER_PARAM.article.commentTotal%><em>评论</em></a></span> <span class="custom-share"> <span class="bdsharebuttonbox"> <a href="#"
-                        class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a> <a href="#" class="bds_weixin"
-                        data-cmd="weixin" title="分享到微信"></a> <a href="#" class="bds_sqq" data-cmd="sqq"
-                        title="分享给QQ好友"></a> <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a> </span>
+                    class="entry-views"><i class="flaticon-eye"></i>
+                    <%-RENDER_PARAM.article.visTotal%><em>阅读</em></span> <span class="entry-comment"><a
+                      href="/<%-RENDER_PARAM.article.numberId%>.html#comments" class="comments-link"><i
+                        class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>
+                      <%-RENDER_PARAM.article.commentTotal%><em>评论</em></a></span> <span class="custom-share"> <span
+                      class="bdsharebuttonbox"> <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a> <a
+                        href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a> <a href="#" class="bds_sqq"
+                        data-cmd="sqq" title="分享给QQ好友"></a> <a href="#" class="bds_qzone" data-cmd="qzone"
+                        title="分享到QQ空间"></a> </span>
                   </span></div>
               </header>
               <div class="single-excerpt">
                 <p><%-RENDER_PARAM.article.description%></p>
               </div>
               <div class="entry-content">
-                <img width="780" height="460" src="<%-RENDER_PARAM.article.poster%>" class="attachment-boke_x_single_thumb size-boke_x_single_thumb wp-post-image" alt="<%-RENDER_PARAM.article.title%>" />
+                <img width="780" height="460" src="<%-RENDER_PARAM.article.poster%>"
+                  class="attachment-boke_x_single_thumb size-boke_x_single_thumb wp-post-image"
+                  alt="<%-RENDER_PARAM.article.title%>" />
                 <p><%-RENDER_PARAM.article.content%></p>
               </div>
               <% if (WEB_CONFIG.site.articleStatement !== '') {%>
@@ -64,8 +75,10 @@
                   <% if (RENDER_PARAM.article.isReward) { %>
                   <button class="btn-primary btn-show-reward"><i class="fa fa-jpy"></i>&nbsp;打赏作者</button>
                   <% } %>
-                  <button id="" class="btn-primary btn-like" data-number-id="<%-RENDER_PARAM.article.numberId%>" title="点赞文章">
-                    <i class="fa fa-thumbs-o-up"></i>&nbsp;<span id="likeTotal"><%-RENDER_PARAM.article.likeTotal%></span>&nbsp;点赞文章
+                  <button id="" class="btn-primary btn-like" data-number-id="<%-RENDER_PARAM.article.numberId%>"
+                    title="点赞文章">
+                    <i class="fa fa-thumbs-o-up"></i>&nbsp;<span
+                      id="likeTotal"><%-RENDER_PARAM.article.likeTotal%></span>&nbsp;点赞文章
                   </button>
                 </div>
               </div>
@@ -92,11 +105,12 @@
             <div class="author-box clear">
               <a href="/author/<%-RENDER_PARAM.article.userId.nickname%>.html">
                 <img alt="<%-RENDER_PARAM.article.userId.nickname%>" src="<%-RENDER_PARAM.article.userId.avatar%>"
-                    class="avatar avatar-120 photo" height="120" width="120"></a>
+                  class="avatar avatar-120 photo" height="120" width="120"></a>
               <div class="author-meta">
-                <h4 class="author-name">关于作者: 
+                <h4 class="author-name">关于作者:
                   <span class="hover-underline">
-                    <a href="/author/<%-RENDER_PARAM.article.userId.nickname%>.html"><%-RENDER_PARAM.article.userId.nickname%></a>
+                    <a
+                      href="/author/<%-RENDER_PARAM.article.userId.nickname%>.html"><%-RENDER_PARAM.article.userId.nickname%></a>
                   </span>
                 </h4>
                 <div class="author-desc">
@@ -126,88 +140,13 @@
 
             <div id="comments" class="comments-area">
               <div id="respond" class="comment-respond">
-                <h3 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow"
-                      id="cancel-comment-reply-link" href="/demo/bokex/582.html#respond"
-                      style="display:none;">取消回复</a></small></h3>
-                <div class="comment-form">
-                  <div class="comment-must-login">请登录后参与评论...</div>
-                  <div class="form-submit">
-                    <div class="form-submit-text pull-left"><a
-                        href="https://www.zhutibaba.com/demo/bokex/login?redirect_to=https%3A%2F%2Fwww.zhutibaba.com%2Fdemo%2Fbokex%2F582.html?redirect_to=https://www.zhutibaba.com/demo/bokex/582.html">登录</a>
-                      &bullet; <a
-                        href="https://www.zhutibaba.com/demo/bokex/register?redirect_to=https://www.zhutibaba.com/demo/bokex/582.html">注册</a>
-                    </div><a id="must-login" class="submit"
-                      href=https://www.zhutibaba.com/demo/bokex/login?redirect_to=https%3A%2F%2Fwww.zhutibaba.com%2Fdemo%2Fbokex%2F582.html?redirect_to=https://www.zhutibaba.com/demo/bokex/582.html>发布
-                      </a> </div> </div> </div> <h3 class="comments-title"> 评论列表(3)</h3>
-                      <ol class="comment-list">
-                        <li id="comment-15"
-                          class="comment byuser comment-author-zhutibaba bypostauthor even thread-even depth-1 parent">
-                          <article id="div-comment-15" class="comment-body">
-                            <footer class="comment-meta">
-                              <div class="comment-author vcard"> <img alt=''
-                                  src='https://secure.gravatar.com/avatar/4c2ed72c6be86742f05e9750110d5731?s=32&#038;d=mm&#038;r=g'
-                                  srcset='https://secure.gravatar.com/avatar/4c2ed72c6be86742f05e9750110d5731?s=64&#038;d=mm&#038;r=g 2x'
-                                  class='avatar avatar-32 photo' height='32' width='32' /> <b class="fn">网站小编</b><span
-                                  class="says">说道：</span></div>
-                              <div class="comment-metadata"> <a
-                                  href="https://www.zhutibaba.com/demo/bokex/582.html#comment-15"> <time
-                                    datetime="2018-10-30T00:05:52+08:00"> 2018年10月30日 上午12:05 </time> </a></div>
-                            </footer>
-                            <div class="comment-content">
-                              <p>简单测试一下评论样式</p>
-                            </div>
-                            <div class="reply"><a rel="nofollow" class="comment-reply-login"
-                                href="https://www.zhutibaba.com/demo/bokex/login?redirect_to=https%3A%2F%2Fwww.zhutibaba.com%2Fdemo%2Fbokex%2F582.html">登录以回复</a>
-                            </div>
-                          </article>
-                          <ol class="children">
-                            <li id="comment-16"
-                              class="comment byuser comment-author-zhutibaba bypostauthor odd alt depth-2">
-                              <article id="div-comment-16" class="comment-body">
-                                <footer class="comment-meta">
-                                  <div class="comment-author vcard"> <img alt=''
-                                      src='https://secure.gravatar.com/avatar/4c2ed72c6be86742f05e9750110d5731?s=32&#038;d=mm&#038;r=g'
-                                      srcset='https://secure.gravatar.com/avatar/4c2ed72c6be86742f05e9750110d5731?s=64&#038;d=mm&#038;r=g 2x'
-                                      class='avatar avatar-32 photo' height='32' width='32' /> <b
-                                      class="fn">网站小编</b><span class="says">说道：</span></div>
-                                  <div class="comment-metadata"> <a
-                                      href="https://www.zhutibaba.com/demo/bokex/582.html#comment-16"> <time
-                                        datetime="2018-10-30T00:06:12+08:00"> 2018年10月30日 上午12:06 </time> </a></div>
-                                </footer>
-                                <div class="comment-content">
-                                  <p>测试一下评论回复。看起来很不错啊！</p>
-                                </div>
-                              </article>
-                            </li>
-                          </ol>
-                        </li>
-                        <li id="comment-17"
-                          class="comment byuser comment-author-zhutibaba bypostauthor even thread-odd thread-alt depth-1">
-                          <article id="div-comment-17" class="comment-body">
-                            <footer class="comment-meta">
-                              <div class="comment-author vcard"> <img alt=''
-                                  src='https://secure.gravatar.com/avatar/4c2ed72c6be86742f05e9750110d5731?s=32&#038;d=mm&#038;r=g'
-                                  srcset='https://secure.gravatar.com/avatar/4c2ed72c6be86742f05e9750110d5731?s=64&#038;d=mm&#038;r=g 2x'
-                                  class='avatar avatar-32 photo' height='32' width='32' /> <b class="fn">网站小编</b><span
-                                  class="says">说道：</span></div>
-                              <div class="comment-metadata"> <a
-                                  href="https://www.zhutibaba.com/demo/bokex/582.html#comment-17"> <time
-                                    datetime="2018-10-30T00:06:22+08:00"> 2018年10月30日 上午12:06 </time> </a></div>
-                            </footer>
-                            <div class="comment-content">
-                              <p>是的，这个主题真的很棒！</p>
-                            </div>
-                            <div class="reply"><a rel="nofollow" class="comment-reply-login"
-                                href="https://www.zhutibaba.com/demo/bokex/login?redirect_to=https%3A%2F%2Fwww.zhutibaba.com%2Fdemo%2Fbokex%2F582.html">登录以回复</a>
-                            </div>
-                          </article>
-                        </li>
-                      </ol>
-                  </div>
+                评论组件正在加载中...
+              </div>
+            </div>
           </main>
         </div>
       </div>
-      
+
       <% if (RENDER_PARAM.widthType !== 'full') { %>
       <% include ../common/right-aside.html %>
       <% } %>
@@ -216,20 +155,19 @@
     <% include ../common/foot.html %>
 
   </div>
-  
+
   <% include ../common/bottom-right.html %>
 
   <script>
-    (function(window) {
-      var __JSCMS_CONSTANT__ = window.__JSCMS_CONSTANT__ = {
-        article: {
-          user: {
-            "qrWx": <%- JSON.stringify(RENDER_PARAM.article.userId.qrWx) %>,
-            "qrWxpay": <%- JSON.stringify(RENDER_PARAM.article.userId.qrWxpay) %>,
-            "qrWxpub": <%- JSON.stringify(RENDER_PARAM.article.userId.qrWxpub) %>,
-            "qrAlipay": <%- JSON.stringify(RENDER_PARAM.article.userId.qrAlipay) %>,
-            "qrUnionpay": <%- JSON.stringify(RENDER_PARAM.article.userId.qrUnionpay) %>
-          }
+    (function (window) {
+      if (!window.__JSCMS_CONSTANT__) window.__JSCMS_CONSTANT__ = {};
+      window.__JSCMS_CONSTANT__.article = {
+        user: {
+          "qrWx": <%-JSON.stringify(RENDER_PARAM.article.userId.qrWx) %> ,
+          "qrWxpay": <%-JSON.stringify(RENDER_PARAM.article.userId.qrWxpay) %> ,
+          "qrWxpub": <%-JSON.stringify(RENDER_PARAM.article.userId.qrWxpub) %> ,
+          "qrAlipay": <%-JSON.stringify(RENDER_PARAM.article.userId.qrAlipay) %> ,
+          "qrUnionpay": <%-JSON.stringify(RENDER_PARAM.article.userId.qrUnionpay) %>
         }
       };
     })(window);
@@ -237,6 +175,7 @@
 
   <% include ../common/common-script.html %>
 
+  <script type="text/javascript" src="<%-CONSTANT.THEME_STATIC%>/js/article.js"></script>
 </body>
 
 </html>

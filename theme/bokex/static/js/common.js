@@ -47,7 +47,7 @@
           desc: '云闪付扫一扫打赏',
         }]
       };
-      jscmssdk.dialogQrcode.show(options);
+      jscmssdk.dialog.qrcode.show(options);
     });
   }
 
@@ -74,6 +74,9 @@
   }
 
   $(document).ready(function () {
+    // 初始化jscmssdk
+    window.jscmssdk = new JscmsSdk();
+    window.jscmssdk.init();
     // 初始化dom
     initDom();
     // 绑定事件

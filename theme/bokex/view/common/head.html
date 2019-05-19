@@ -12,11 +12,18 @@
   <link rel='dns-prefetch' href='//s.w.org' />
   <script type='text/javascript' src='<%-CONSTANT.THEME_STATIC%>/lib/jquery.js'></script>
   <script type='text/javascript'>
-    var usp_custom_field = "usp_custom_field";
-    var usp_custom_checkbox = "usp_custom_checkbox";
-    var usp_case_sensitivity = "false";
-    var usp_challenge_response = "2";
-    var usp_min_images = 0;
-    var usp_max_images = 1;
-    var usp_parsley_error = "\u9a8c\u8bc1\u9519\u8bef";
+    (function (window) {
+      window.usp_custom_field = "usp_custom_field";
+      window.usp_custom_checkbox = "usp_custom_checkbox";
+      window.usp_case_sensitivity = "false";
+      window.usp_challenge_response = "2";
+      window.usp_min_images = 0;
+      window.usp_max_images = 1;
+      window.usp_parsley_error = "\u9a8c\u8bc1\u9519\u8bef";
+
+      if (!window.__JSCMS_CONSTANT__) window.__JSCMS_CONSTANT__ = {};
+      window.__JSCMS_CONSTANT__.CONSTANT = {
+        THEME_STATIC: <%-JSON.stringify(CONSTANT.THEME_STATIC)%>
+      };
+    })(window);
   </script>
